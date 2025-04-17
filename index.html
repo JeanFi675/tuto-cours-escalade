@@ -20,10 +20,13 @@
     label { display: block; margin: 10px 0; }
     input[type="text"], input[type="email"], input[type="tel"] { width: 100%; padding: 8px; margin-top: 5px; box-sizing: border-box; }
     .note { background: #fff3cd; padding: 10px; border-radius: 4px; margin-top: 10px; }
+    img { max-width: 100%; border-radius: 4px; margin: 10px 0; }
   </style>
 </head>
 <body>
   <h1>Inscription Cours d'Escalade 2024‑2025</h1>
+  <!-- Diagramme du processus -->
+  <img src="images/1%20-%20mermaid-diagram-2025-02-04-140308.png" alt="Schéma du processus d'inscription">
   <div class="progress"><div id="progress-bar" class="progress-bar"></div></div>
 
   <!-- Step 1 -->
@@ -36,11 +39,13 @@
     </fieldset>
     <div id="case-licensed" class="note hidden">
       <p>Connectez-vous avec votre numéro de licence :</p>
+      <img src="images/2%20-%20Connexion.png" alt="Page de connexion licencié">
       <a href="https://www.caflarochebonneville.fr" target="_blank">www.caflarochebonneville.fr</a>
     </div>
     <div id="case-not-licensed" class="note hidden">
       <p>Attendez la validation de votre inscription avant de prendre votre licence (ne pas la prendre avant le 1er septembre).</p>
       <p>Connectez-vous via votre adresse e-mail :</p>
+      <img src="images/3%20-%20Connexion.png" alt="Page de connexion non-licencié">
       <a href="https://www.caflarochebonneville.fr/inscription" target="_blank">Espace d’inscription</a>
       <p>❗ Si vous ne recevez pas l'email, vérifiez vos indésirables (spam).</p>
     </div>
@@ -60,9 +65,11 @@
     </fieldset>
     <div id="already-registered" class="note hidden">
       <p>✅ Vos coordonnées sont déjà remplies et gérées par la FFCAM.</p>
+      <img src="images/4%20-%20Coordonnées.png" alt="Coordonnées pré-remplies">
       <p>Si elles sont erronées, mettez-les à jour sur le site de la fédération.</p>
     </div>
     <form id="coords-form" class="hidden">
+      <img src="images/5%20-%20Coordonnées.png" alt="Formulaire coordonnées">
       <label>Prénom<br><input type="text" id="first-name" required></label>
       <label>Nom<br><input type="text" id="last-name" required></label>
       <label>Email<br><input type="email" id="email" required></label>
@@ -78,8 +85,9 @@
   <div id="step-3" class="step">
     <h2>3️⃣ Choix des cours</h2>
     <p>Sélectionnez les cours auxquels vous souhaitez vous inscrire :</p>
+    <img src="images/6%20-%20image.png" alt="Liste des cours disponibles">
+    <img src="images/7%20-%20Inscriptionse.png" alt="Sélection des créneaux">
     <form id="courses-form">
-      <!-- TODO: Remplacez par la liste réelle des cours et créneaux -->
       <label><input type="checkbox" name="course" value="beginners-wed-18h"> Cours Débutant - Mercredi 18h</label>
       <label><input type="checkbox" name="course" value="advanced-sat-10h"> Cours Avancé - Samedi 10h</label>
       <label><input type="checkbox" name="course" value="kids-ages-8-12"> Cours Enfants (8‑12 ans) - Samedi 14h</label>
@@ -94,6 +102,8 @@
   <div id="step-4" class="step">
     <h2>4️⃣ Paiement</h2>
     <p>Le paiement se fait uniquement par carte bancaire via HelloAsso.</p>
+    <img src="images/9%20-%20paiement.png" alt="Page de paiement HelloAsso">
+    <img src="images/8%20-%20validations.png" alt="Confirmation du paiement">
     <a href="https://www.helloasso.com/associations/caf-la-roche-bonneville" target="_blank">Payer maintenant</a>
     <div class="nav-buttons">
       <button id="prev-4">Précédent</button>
@@ -104,6 +114,7 @@
   <!-- Step 5 -->
   <div id="step-5" class="step">
     <h2>5️⃣ Confirmation</h2>
+    <img src="images/10%20-%20Messageries.png" alt="Messagerie de confirmation">
     <p>Merci ! Votre inscription est terminée.</p>
     <p>Vous recevrez une confirmation dans la messagerie du site sous 1 semaine.</p>
     <p>Un e-mail d’information sera envoyé fin août avant le début des cours.</p>
