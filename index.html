@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inscription Cours d'Escalade CAF La Roche - Bonneville</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 700px; margin: 40px auto; padding: 0 20px; }
+    h1 { text-align: center; }
+    .progress { height: 6px; background: #e0e0e0; border-radius: 3px; margin-bottom: 20px; overflow: hidden; }
+    .progress-bar { height: 100%; width: 0; background: #007bff; transition: width 0.3s ease; }
+    .step { display: none; }
+    .step.active { display: block; }
+    .hidden { display: none; }
+    .nav-buttons { display: flex; justify-content: space-between; margin-top: 20px; }
+    button { padding: 10px 20px; border: none; background: #007bff; color: #fff; border-radius: 4px; cursor: pointer; }
+    button:disabled { background: #ccc; cursor: not-allowed; }
+    fieldset { border: 1px solid #ddd; padding: 20px; border-radius: 4px; margin-top: 10px; }
+    fieldset legend { font-weight: bold; }
+    label { display: block; margin: 10px 0; }
+    input[type="text"], input[type="email"], input[type="tel"] { width: 100%; padding: 8px; margin-top: 5px; box-sizing: border-box; }
+    .note { background: #fff3cd; padding: 10px; border-radius: 4px; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Inscription Cours d'Escalade 2024‑2025</h1>
+  <div class="progress"><div id="progress-bar" class="progress-bar"></div></div>
+
+  <!-- Step 1 -->
+  <div id="step-1" class="step active">
+    <h2>1️⃣ Accéder à la plateforme d'inscription</h2>
+    <fieldset>
+      <legend>Votre situation</legend>
+      <label><input type="radio" name="user-case" value="licensed"> Vous êtes déjà licencié au CAF La Roche - Bonneville</label>
+      <label><input type="radio" name="user-case" value="not-licensed"> Vous n’êtes pas encore licencié</label>
+    </fieldset>
+    <div id="case-licensed" class="note hidden">
+      <p>Connectez-vous avec votre numéro de licence :</p>
+      <a href="https://www.caflarochebonneville.fr" target="_blank">www.caflarochebonneville.fr</a>
+    </div>
+    <div id="case-not-licensed" class="note hidden">
+      <p>Attendez la validation de votre inscription avant de prendre votre licence (ne pas la prendre avant le 1er septembre).</p>
+      <p>Connectez-vous via votre adresse e-mail :</p>
+      <a href="https://www.caflarochebonneville.fr/inscription" target="_blank">Espace d’inscription</a>
+      <p>❗ Si vous ne recevez pas l'email, vérifiez vos indésirables (spam).</p>
+    </div>
+    <div class="nav-buttons">
+      <button id="prev-1" disabled>Précédent</button>
+      <button id="next-1" disabled>Étape suivante</button>
+    </div>
+  </div>
+
+  <!-- Step 2 -->
+  <div id="step-2" class="step">
+    <h2>2️⃣ Coordonnées</h2>
+    <fieldset>
+      <legend>Étiez-vous inscrit l’année dernière ?</legend>
+      <label><input type="radio" name="prev-registered" value="yes"> Oui</label>
+      <label><input type="radio" name="prev-registered" value="no"> Non</label>
+    </fieldset>
+    <div id="already-registered" class="note hidden">
+      <p>✅ Vos coordonnées sont déjà remplies et gérées par la FFCAM.</p>
+      <p>Si elles sont erronées, mettez-les à jour sur le site de la fédération.</p>
+    </div>
+    <form id="coords-form" class="hidden">
+      <label>Prénom<br><input type="text" id="first-name" required></label>
+      <label>Nom<br><input type="text" id="last-name" required></label>
+      <label>Email<br><input type="email" id="email" required></label>
+      <label>Téléphone<br><input type="tel" id="phone" required></label>
+    </form>
+    <div class="nav-buttons">
+      <button id="prev-2">Précédent</button>
+      <button id="next-2" disabled>Étape suivante</button>
+    </div>
+  </div>
+
+  <!-- Step 3 -->
+  <div id="step-3" class="step">
+    <h2>3️⃣ Choix des cours</h2>
+    <p>Sélectionnez les cours auxquels vous souhaitez vous inscrire :</p>
+    <form id="courses-form">
+      <!-- TODO: Remplacez par la liste réelle des cours et créneaux -->
+      <label><input type="checkbox" name="course" value="beginners-wed-18h"> Cours Débutant - Mercredi 18h</label>
+      <label><input type="checkbox" name="course" value="advanced-sat-10h"> Cours Avancé - Samedi 10h</label>
+      <label><input type="checkbox" name="course" value="kids-ages-8-12"> Cours Enfants (8‑12 ans) - Samedi 14h</label>
+    </form>
+    <div class="nav-buttons">
+      <button id="prev-3">Précédent</button>
+      <button id="next-3" disabled>Étape suivante</button>
+    </div>
+  </div>
+
+  <!-- Step 4 -->
+  <div id="step-4" class="step">
+    <h2>4️⃣ Paiement</h2>
+    <p>Le paiement se fait uniquement par carte bancaire via HelloAsso.</p>
+    <a href="https://www.helloasso.com/associations/caf-la-roche-bonneville" target="_blank">Payer maintenant</a>
+    <div class="nav-buttons">
+      <button id="prev-4">Précédent</button>
+      <button id="next-4">Étape suivante</button>
+    </div>
+  </div>
+
+  <!-- Step 5 -->
+  <div id="step-5" class="step">
+    <h2>5️⃣ Confirmation</h2>
+    <p>Merci ! Votre inscription est terminée.</p>
+    <p>Vous recevrez une confirmation dans la messagerie du site sous 1 semaine.</p>
+    <p>Un e-mail d’information sera envoyé fin août avant le début des cours.</p>
+  </div>
+
+  <script>
+    const steps = document.querySelectorAll('.step');
+    const progressBar = document.getElementById('progress-bar');
+    let currentStep = 0;
+
+    function updateProgress() {
+      const percent = (currentStep) / (steps.length - 1) * 100;
+      progressBar.style.width = percent + '%';
+    }
+
+    function showStep(index) {
+      steps.forEach((s, i) => s.classList.toggle('active', i === index));
+      currentStep = index;
+      updateProgress();
+    }
+
+    // Navigation buttons
+    document.getElementById('next-1').addEventListener('click', () => showStep(1));
+    document.getElementById('prev-2').addEventListener('click', () => showStep(0));
+    document.getElementById('next-2').addEventListener('click', () => showStep(2));
+    document.getElementById('prev-3').addEventListener('click', () => showStep(1));
+    document.getElementById('next-3').addEventListener('click', () => showStep(3));
+    document.getElementById('prev-4').addEventListener('click', () => showStep(2));
+    document.getElementById('next-4').addEventListener('click', () => showStep(4));
+
+    // Step 1 logic
+    document.querySelectorAll('input[name="user-case"]').forEach(el => {
+      el.addEventListener('change', () => {
+        document.getElementById('case-licensed').classList.toggle('hidden', el.value !== 'licensed');
+        document.getElementById('case-not-licensed').classList.toggle('hidden', el.value !== 'not-licensed');
+        document.getElementById('next-1').disabled = false;
+      });
+    });
+
+    // Step 2 logic
+    document.querySelectorAll('input[name="prev-registered"]').forEach(el => {
+      el.addEventListener('change', () => {
+        const yes = el.value === 'yes';
+        document.getElementById('already-registered').classList.toggle('hidden', !yes);
+        document.getElementById('coords-form').classList.toggle('hidden', yes);
+        document.getElementById('next-2').disabled = false;
+      });
+    });
+
+    // Step 3 logic
+    document.querySelectorAll('input[name="course"]').forEach(el => {
+      el.addEventListener('change', () => {
+        const anyChecked = [...document.querySelectorAll('input[name="course"]')].some(c => c.checked);
+        document.getElementById('next-3').disabled = !anyChecked;
+      });
+    });
+
+    // Initialize
+    updateProgress();
+  </script>
+</body>
+</html>
