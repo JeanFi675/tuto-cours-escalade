@@ -5,197 +5,113 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tutoriel d’inscription aux cours d’escalade</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
-      color: #333;
-      background: #f5f5f5;
-    }
-    main {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 1rem;
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    h1, h2, h3 {
-      color: #2c3e50;
-    }
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-    }
-    h2 {
-      margin-top: 2rem;
-      font-size: 1.5rem;
-    }
-    ol, ul {
-      margin: 1rem 0;
-      padding-left: 1.5rem;
-    }
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-      margin: 1rem 0;
-      border-radius: 4px;
-    }
-    .aside {
-      border-left: 4px solid #007bff;
-      background: #f0f8ff;
-      padding: 1rem;
-      margin: 1rem 0;
-      border-radius: 4px;
-    }
-    .aside.tip {
-      border-color: #ffc107;
-      background: #fff8e1;
-    }
-    .aside.warning {
-      border-color: #dc3545;
-      background: #fdecea;
-    }
-    details {
-      margin: 1rem 0;
-    }
-    summary {
-      font-weight: bold;
-      cursor: pointer;
-      list-style: none;
-    }
-    summary::-webkit-details-marker {
-      display: none;
-    }
-    summary:before {
-      content: "▸";
-      display: inline-block;
-      margin-right: 0.5em;
-      transform: rotate(0deg);
-      transition: transform 0.2s ease-in-out;
-    }
-    details[open] summary:before {
-      transform: rotate(90deg);
-    }
-    a {
-      color: #007bff;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
+    body { font-family: Arial, sans-serif; background: #f5f5f5; margin: 0; padding: 0; }
+    main { max-width: 800px; margin: 2rem auto; padding: 1rem; background: #fff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    h1, h2 { color: #2c3e50; }
+    h1 { font-size: 2rem; margin-bottom: 1rem; }
+    .step { display: none; }
+    .step.active { display: block; }
+    .buttons { margin-top: 1.5rem; display: flex; justify-content: space-between; }
+    button { padding: 0.6rem 1.2rem; border: none; background: #007bff; color: white; border-radius: 4px; cursor: pointer; }
+    button[disabled] { background: #ccc; cursor: default; }
+    .choice-content { margin-top: 1rem; padding: 1rem; border: 1px solid #ddd; border-radius: 4px; background: #fafafa; }
+    img { max-width: 100%; height: auto; border-radius: 4px; margin: 1rem 0; }
+    ul, ol { margin: 1rem 0; padding-left: 1.5rem; }
   </style>
 </head>
 <body>
   <main>
-    <!-- Introduction -->
-    <section id="intro">
-      <h1>Tutoriel d’inscription aux cours d’escalade</h1>
-      <p>Ce guide vous explique, <strong>étape par étape</strong>, comment vous inscrire aux cours d’escalade du <strong>CAF La Roche - Bonneville</strong> pour la saison 2024-2025.</p>
-      <div class="aside">
-        <p><strong>Avant de commencer :</strong></p>
-        <ul>
-          <li>Respectez les <strong>dates d’ouverture des inscriptions</strong>.</li>
-          <li>Préparez votre moyen de paiement (carte bancaire via HelloAsso).</li>
-          <li>La <strong>licence CAF</strong> est obligatoire (à prendre <em>après validation</em>).</li>
-        </ul>
-      </div>
-      <h2>Processus d’inscription en un coup d'œil</h2>
-      <ol>
-        <li>Remplir le formulaire d’inscription sur le site.</li>
-        <li>Réception du lien de paiement via HelloAsso.</li>
-        <li>Effectuer le paiement en ligne.</li>
-        <li>Confirmation du paiement reçue sur le site.</li>
-        <li>Attribution des cours selon choix et disponibilités (~1 semaine).</li>
-        <li>Validation de l’inscription dans la messagerie interne.</li>
-        <li>Vérification de votre inscription.</li>
-        <li>Envoi d’un e-mail d’information fin août.</li>
-      </ol>
-      <img src="mermaid-diagram-2025-02-04-140308.png" alt="Diagramme du processus d'inscription">
-    </section>
-
-    <!-- Étape 1 -->
-    <section id="step1">
+    <h1>Tutoriel d’inscription aux cours d’escalade</h1>
+    <div id="step1" class="step active">
       <h2>1️⃣ Accéder à la plateforme d'inscription</h2>
-      <details>
-        <summary>Cas 1 : Vous êtes déjà licencié au CAF La Roche Bonneville</summary>
+      <p>Êtes-vous déjà licencié au CAF La Roche - Bonneville ?</p>
+      <label><input type="radio" name="licensed" value="yes"> Oui</label><br>
+      <label><input type="radio" name="licensed" value="no"> Non</label>
+      <div id="lic-yes" class="choice-content" style="display:none;">
         <p>Connectez-vous avec votre numéro de licence :</p>
-        <p><a href="https://www.caflarochebonneville.fr/" target="_blank" rel="noopener">caflarochebonneville.fr</a></p>
+        <p><a href="https://www.caflarochebonneville.fr/" target="_blank">caflarochebonneville.fr</a></p>
         <img src="image.png" alt="Connexion par licence">
-      </details>
-      <details>
-        <summary>Cas 2 : Vous n’êtes pas encore licencié</summary>
+      </div>
+      <div id="lic-no" class="choice-content" style="display:none;">
         <p>Attendez la validation de votre inscription avant de prendre votre licence (ne pas la prendre avant le 1er septembre).</p>
         <p>Connectez-vous via votre adresse e-mail :</p>
-        <p><a href="https://www.caflarochebonneville.fr/cours.html" target="_blank" rel="noopener">Espace d’inscription</a> et cliquez sur <em>Connexion</em>.</p>
+        <p><a href="https://www.caflarochebonneville.fr/cours.html" target="_blank">Espace d’inscription</a> et cliquez sur <em>Connexion</em>.</p>
         <p><strong>Vérifiez vos courriers indésirables (spam) si vous ne recevez pas l’email.</strong></p>
         <img src="image%201.png" alt="Connexion par email">
-      </details>
-    </section>
+      </div>
+      <div class="buttons">
+        <div></div>
+        <button id="next1" disabled>Suivant →</button>
+      </div>
+    </div>
 
-    <!-- Étape 2 -->
-    <section id="step2">
+    <div id="step2" class="step">
       <h2>2️⃣ Coordonnées</h2>
       <p>Une fois connecté, cliquez sur <strong>Étape suivante</strong> ou <strong>Coordonnées</strong> :</p>
       <img src="image%202.png" alt="Écran des coordonnées">
       <p>Remplissez vos coordonnées :</p>
       <img src="image%203.png" alt="Formulaire de coordonnées">
-      <details>
-        <summary>Vous étiez déjà inscrit l’année dernière</summary>
-        <p>Vos coordonnées sont déjà remplies par la FFCAM. Si elles sont erronées, mettez-les à jour sur le site de la fédération.</p>
-      </details>
-    </section>
-
-    <!-- Étape 3 -->
-    <section id="step3">
-      <h2>3️⃣ Sélectionner la personne à inscrire</h2>
-      <p>Cliquez sur <strong>Étape suivante</strong> ou <strong>Inscription</strong> et suivez les instructions :</p>
-      <img src="image%204.png" alt="Sélection de la personne">
-      <details>
-        <summary>Cas 1 : Vous étiez déjà inscrit l’année dernière</summary>
-        <p>Sélectionnez votre nom dans la liste proposée.</p>
-      </details>
-      <details>
-        <summary>Cas 2 : Première inscription</summary>
-        <p>Entrez les informations personnelles de l’élève (nom, prénom, date de naissance).</p>
-        <p>La date de naissance est importante pour déterminer l’accès aux niveaux de cours.</p>
-      </details>
-    </section>
-
-    <!-- Étape 4 -->
-    <section id="step4">
-      <h2>4️⃣ Choisir un cours</h2>
-      <div class="aside tip">
-        <p><strong>Jeunes (primaire et collège)</strong> :</p>
-        <ul>
-          <li>Tous démarrent en <strong>Débutant</strong>.</li>
-          <li>Apprentissage des bases de l’assurage et des règles de sécurité.</li>
-          <li>Après une année, passage en <strong>Confirmé</strong>.</li>
-        </ul>
+      <div class="choice-content">
+        <p><strong>Étiez-vous déjà inscrit l’année dernière ?</strong></p>
+        <label><input type="radio" name="prevReg" value="yes"> Oui</label><br>
+        <label><input type="radio" name="prevReg" value="no"> Non</label>
+        <div id="prev-yes" style="display:none; margin-top:1rem;">
+          <p>Vos coordonnées sont déjà remplies par la FFCAM. Si elles sont erronées, mettez-les à jour sur le site de la fédération.</p>
+        </div>
       </div>
-      <div class="aside tip">
-        <p><strong>Adultes</strong> :</p>
+      <div class="buttons">
+        <button id="prev2">← Précédent</button>
+        <button id="next2" disabled>Suivant →</button>
+      </div>
+    </div>
+
+    <div id="step3" class="step">
+      <h2>3️⃣ Sélectionner la personne à inscrire</h2>
+      <p>Cliquez sur <strong>Étape suivante</strong> ou <strong>Inscription</strong> et choisissez :</p>
+      <label><input type="radio" name="personType" value="old"> J’étais inscrit l’année dernière</label><br>
+      <label><input type="radio" name="personType" value="new"> Première inscription</label>
+      <div id="person-old" class="choice-content" style="display:none;">
+        <p>Sélectionnez votre nom dans la liste proposée.</p>
+        <img src="image%204.png" alt="Sélection de l'ancien utilisateur">
+      </div>
+      <div id="person-new" class="choice-content" style="display:none;">
+        <p>Entrez les informations personnelles de l’élève (nom, prénom, date de naissance). La date de naissance détermine l’accès aux différents niveaux de cours.</p>
+        <img src="image%204.png" alt="Formulaire nouvelle inscription">
+      </div>
+      <div class="buttons">
+        <button id="prev3">← Précédent</button>
+        <button id="next3" disabled>Suivant →</button>
+      </div>
+    </div>
+
+    <div id="step4" class="step">
+      <h2>4️⃣ Choisir un cours</h2>
+      <div class="choice-content">
+        <h3>Jeunes (primaire et collège)</h3>
+        <ul>
+          <li>Tous démarrent en <strong>Débutant</strong> pour apprendre l’assurage, techniques fondamentales et sécurité.</li>
+          <li>Après une première année, ils passent en catégorie <strong>Confirmé</strong>.</li>
+        </ul>
+        <h3>Adultes</h3>
         <ul>
           <li><strong>Loisir</strong> : accessible à tous niveaux.</li>
-          <li><strong>Perfectionnement</strong> : réservé aux grimpeurs ayant une base technique.</li>
+          <li><strong>Perfectionnement</strong> : réservé aux grimpeurs ayant déjà une base technique.</li>
         </ul>
-      </div>
-      <div class="aside warning">
-        <p><strong>Groupes soumis à approbation :</strong></p>
+        <h3>Groupes soumis à approbation</h3>
         <ul>
           <li>Pré-compétition 6-8 ans</li>
           <li>Compétition U12 et U14</li>
           <li>Compétition U16 à Vétéran</li>
         </ul>
       </div>
-    </section>
+      <div class="buttons">
+        <button id="prev4">← Précédent</button>
+        <button id="next4">Suivant →</button>
+      </div>
+    </div>
 
-    <!-- Étape 5 -->
-    <section id="step5">
+    <div id="step5" class="step">
       <h2>5️⃣ Processus d’attribution des créneaux</h2>
-      <p>Choisissez vos créneaux et préférences de moniteur pour maximiser vos chances :</p>
       <ol>
         <li>Validation après réception du paiement.</li>
         <li>Classement des créneaux selon vos préférences.</li>
@@ -203,30 +119,30 @@
         <li>Si aucun créneau disponible, placement sur liste d’attente.</li>
       </ol>
       <img src="pako_eNqVk82O2jAQx19l5D1sKwVE7IRADq1YohWV-nHonko4mMTZWE3syB8qFHggnoMXq7MBCoLL5mDNjOf_n99E8gZlMmcoRq-KNiW8JKkA900-JKymImeQP3KhM8Ubw6X4CL3eJ3iaf-XauCumIVOHvWDUriCrqNaHvYaGKmgUl4qbw36Ris7x6U069ecvzGkVTI9C8Bddw9RvO7Y.jpeg" alt="Schéma attribution créneaux">
-    </section>
+      <div class="buttons">
+        <button id="prev5">← Précédent</button>
+        <button id="next5">Suivant →</button>
+      </div>
+    </div>
 
-    <!-- Étape 6 -->
-    <section id="step6">
-      <h2>6️⃣ Indiquer ses préférences créneaux horaires et moniteurs</h2>
-      <div class="aside">
-        <p><strong>Créneaux horaires :</strong></p>
-        <p>Utilisez les flèches pour classer ou supprimer des créneaux (limiter les choix réduit les chances).</p>
+    <div id="step6" class="step">
+      <h2>6️⃣ Préférences horaires et moniteurs</h2>
+      <ul>
+        <li><strong>Créneaux horaires</strong> : Utilisez les flèches ⬆/⬇ pour classer, ✖ pour supprimer (limiter vos choix réduit vos chances).</li>
+        <li><strong>Moniteurs</strong> :<ul>
+          <li>Oui : priorité à votre ancien moniteur.</li>
+          <li>Non : autre moniteur selon dispo.</li>
+          <li>Peu importe : plus de flexibilité.</li>
+        </ul></li>
+      </ul>
+      <p><strong>Un créneau indiqué comme (Complet) est plein. Même s’il est affiché disponible, il peut être sur le point d’être rempli.</strong></p>
+      <div class="buttons">
+        <button id="prev6">← Précédent</button>
+        <button id="next6">Suivant →</button>
       </div>
-      <div class="aside">
-        <p><strong>Moniteurs :</strong></p>
-        <ul>
-          <li>Oui → priorité à votre ancien moniteur.</li>
-          <li>Non → autre moniteur selon dispo.</li>
-          <li>Peu importe → plus de flexibilité.</li>
-        </ul>
-      </div>
-      <div class="aside warning">
-        <p>Un créneau complet affiche <em>(Complet)</em>. Disponible peut être sur le point d’être rempli.</p>
-      </div>
-    </section>
+    </div>
 
-    <!-- Étape 7 -->
-    <section id="step7">
+    <div id="step7" class="step">
       <h2>7️⃣ Valider et accepter le règlement</h2>
       <ol>
         <li>Droit à l’image : autorisation photos/vidéos.</li>
@@ -234,19 +150,69 @@
       </ol>
       <p>Cliquez sur <strong>Valider cette inscription</strong>. Une inscription n’est validée qu’après paiement.</p>
       <img src="image%206.png" alt="Validation inscription">
-    </section>
+      <div class="buttons">
+        <button id="prev7">← Précédent</button>
+        <button id="next7">Suivant →</button>
+      </div>
+    </div>
 
-    <!-- Étape 8 -->
-    <section id="step8">
+    <div id="step8" class="step">
       <h2>8️⃣ Paiement de l'inscription</h2>
       <p>Le paiement s’effectue en ligne via HelloAsso :</p>
       <img src="image%207.png" alt="Paiement HelloAsso">
-      <div class="aside">
+      <div class="choice-content">
         <p><strong>Inscription finalisée après paiement.</strong></p>
         <p>Attribution ou liste d’attente sous ~1 semaine (notification interne).</p>
       </div>
       <img src="image%208.png" alt="Confirmation inscription">
-    </section>
+      <div class="buttons">
+        <button id="prev8">← Précédent</button>
+        <button id="finish">Terminer</button>
+      </div>
+    </div>
+
   </main>
+  <script>
+    const steps = [...document.querySelectorAll('.step')];
+    let cur = 0;
+    function showStep(i) {
+      steps.forEach((s, idx) => s.classList.toggle('active', idx===i));
+    }
+    function next() { if(cur<steps.length-1) { cur++; showStep(cur); }}
+    function prev() { if(cur>0) { cur--; showStep(cur); }}
+    // Step1 logic
+    document.getElementsByName('licensed').forEach(r=>r.addEventListener('change', e=>{
+      document.getElementById('lic-yes').style.display = e.target.value==='yes'? 'block':'none';
+      document.getElementById('lic-no').style.display = e.target.value==='no'? 'block':'none';
+      document.getElementById('next1').disabled=false;
+    }));
+    document.getElementById('next1').addEventListener('click', next);
+    // Step2 logic
+    document.getElementsByName('prevReg').forEach(r=>r.addEventListener('change', e=>{
+      document.getElementById('prev-yes').style.display = e.target.value==='yes'? 'block':'none';
+      document.getElementById('next2').disabled=false;
+    }));
+    document.getElementById('prev2').addEventListener('click', prev);
+    document.getElementById('next2').addEventListener('click', next);
+    // Step3 logic
+    document.getElementsByName('personType').forEach(r=>r.addEventListener('change', e=>{
+      document.getElementById('person-old').style.display = e.target.value==='old'? 'block':'none';
+      document.getElementById('person-new').style.display = e.target.value==='new'? 'block':'none';
+      document.getElementById('next3').disabled=false;
+    }));
+    document.getElementById('prev3').addEventListener('click', prev);
+    document.getElementById('next3').addEventListener('click', next);
+    // Other steps next/prev
+    document.querySelector('#prev4').addEventListener('click', prev);
+    document.querySelector('#next4').addEventListener('click', next);
+    document.querySelector('#prev5').addEventListener('click', prev);
+    document.querySelector('#next5').addEventListener('click', next);
+    document.querySelector('#prev6').addEventListener('click', prev);
+    document.querySelector('#next6').addEventListener('click', next);
+    document.querySelector('#prev7').addEventListener('click', prev);
+    document.querySelector('#next7').addEventListener('click', next);
+    document.querySelector('#prev8').addEventListener('click', prev);
+    document.querySelector('#finish').addEventListener('click', ()=> alert('Vous avez terminé le tutoriel !'));
+  </script>
 </body>
 </html>
