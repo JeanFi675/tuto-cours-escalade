@@ -1,261 +1,307 @@
+<!-- File: index.html -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tutoriel d’Inscription aux Cours d’Escalade</title>
-  <style>
-    body { font-family: Arial, sans-serif; background: #f5f5f5; margin: 0; padding: 0; }
-    main { max-width: 800px; margin: 2rem auto; padding: 1rem; background: #fff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-    h1, h2, h3 { color: #2c3e50; margin-top: 1.5rem; }
-    h1 { font-size: 2rem; margin-bottom: 1rem; text-align: center; }
-    p, ul, ol { margin: 1rem 0; }
-    ul, ol { padding-left: 1.5rem; }
-    img { max-width: 100%; height: auto; border-radius: 4px; margin: 1rem 0; }
-    .aside { border-left: 4px solid #007bff; background: #f0f8ff; padding: 1rem; margin: 1rem 0; border-radius: 4px; }
-    .aside.warning { border-color: #dc3545; background: #fdecea; }
-    .aside.tip { border-color: #ffc107; background: #fff8e1; }
-    .step { display: none; }
-    .step.active { display: block; }
-    .buttons { display: flex; justify-content: space-between; margin-top: 1.5rem; }
-    button { padding: 0.6rem 1.2rem; border: none; background: #007bff; color: white; border-radius: 4px; cursor: pointer; }
-    button[disabled] { background: #ccc; cursor: default; }
-    .choice-content { margin-top: 1rem; padding: 1rem; border: 1px solid #ddd; border-radius: 4px; background: #fafafa; }
-  </style>
+  <title>Guide d'inscription aux cours d'escalade - CAF La Roche - Bonneville</title>
+  <meta name="description" content="Guide pas à pas pour l'inscription aux cours d'escalade du CAF La Roche - Bonneville.">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main>
-    <h1>Tutoriel d’Inscription aux Cours d’Escalade</h1>
-
-    <!-- Step 0: Intro -->
-    <div id="step0" class="step active">
-      <h2>📌 Avant de commencer</h2>
+  <header>
+    <h1>Guide d'inscription aux cours d'escalade</h1>
+    <nav id="toc" aria-label="Table des matières">
       <ul>
-        <li>Assurez-vous de respecter les <strong>dates d’ouverture des inscriptions</strong>.</li>
-        <li>Préparez votre <strong>moyen de paiement</strong> (paiement uniquement par carte bancaire via HelloAsso).</li>
-        <li>La <strong>licence CAF</strong> est obligatoire pour accéder aux cours (à prendre <em>uniquement après validation de votre inscription aux cours</em>).</li>
+        <li><a href="#overview">Processus en un coup d'œil</a></li>
+        <li><a href="#step1">1. Accéder à la plateforme</a></li>
+        <li><a href="#step2">2. Coordonnées</a></li>
+        <li><a href="#step3">3. Sélection de la personne</a></li>
+        <li><a href="#allocation">Processus d’attribution des créneaux</a></li>
+        <li><a href="#step4">4. Choisir un cours</a></li>
+        <li><a href="#step6">6. Préférences horaires et moniteurs</a></li>
+        <li><a href="#step7">7. Validation et règlement</a></li>
+        <li><a href="#step8">8. Paiement</a></li>
       </ul>
+    </nav>
+  </header>
+  <main>
+
+    <section id="overview">
       <h2>📌 Processus d’Inscription en un coup d'œil</h2>
       <ol>
-        <li>Remplir son formulaire d’inscription sur le site.</li>
-        <li>Réception d’un lien de paiement via HelloAsso.</li>
-        <li>Effectuer son paiement.</li>
-        <li>Confirmation du paiement envoyée au site.</li>
-        <li>Attribution des cours selon choix et disponibilités (±1 semaine).</li>
-        <li>Validation de l’inscription dans la messagerie.</li>
-        <li>Vérifier son inscription.</li>
-        <li>Réception d’un e-mail d’information fin août.</li>
+        <li>Vous remplissez le formulaire d’inscription.</li>
+        <li>Un lien de paiement HelloAsso est envoyé.</li>
+        <li>Vous effectuez le paiement.</li>
+        <li>Confirmation envoyée au site.</li>
+        <li>Attribution des cours (±1 semaine).</li>
+        <li>Validation dans la messagerie du site.</li>
+        <li>Vérification de votre inscription.</li>
+        <li>Email d’information fin août.</li>
       </ol>
-      <img src="mermaid-diagram-2025-02-04-140308.png" alt="Diagramme du processus">
-      <div class="buttons"><div></div><button id="next0">Étape 1 →</button></div>
-    </div>
+      <img src="/mermaid-diagram-2025-02-04-140308.png" alt="Diagramme du processus d'inscription">
+    </section>
 
-    <!-- Step 1 -->
-    <div id="step1" class="step">
+    <section id="step1">
       <h2>1️⃣ Accéder à la plateforme d'inscription</h2>
-      <p>Choisissez votre cas :</p>
-      <label><input type="radio" name="licensed" value="yes"> Cas 1 : Vous êtes déjà licencié au CAF La Roche Bonneville</label><br>
-      <label><input type="radio" name="licensed" value="no"> Cas 2 : Vous n’êtes pas encore licencié</label>
-      <div id="lic-yes" class="choice-content" style="display:none;">
-        <p>✅ Connectez-vous avec votre adresse mail ici :</p>
-        <p><a href="https://www.caflarochebonneville.fr/" target="_blank">caflarochebonneville.fr</a></p>
-        <img src="image.png" alt="Connexion licence">
-      </div>
-      <div id="lic-no" class="choice-content" style="display:none;">
-        <p>✅ <strong>Attendez la validation de votre inscription avant de prendre votre licence</strong> (ne pas la prendre avant le 1er septembre).</p>
-        <p>✅ Connectez-vous via votre <strong>adresse e-mail</strong> ici :</p>
-        <p><a href="https://www.caflarochebonneville.fr/cours.html" target="_blank">Espace d’inscription</a> et cliquez sur <strong>Connexion</strong>.</p>
-        <p>❗ Si vous ne recevez pas l'email de confirmation, vérifiez vos courriers indésirables (spam).</p>
-        <img src="image%201.png" alt="Connexion email">
-      </div>
-      <div class="buttons">
-        <button id="prev1">← Retour</button>
-        <button id="next1" disabled>Étape 2 →</button>
-      </div>
-    </div>
+      <article>
+        <h3>Cas 1 : Vous êtes déjà licencié</h3>
+        <p>Connectez-vous avec votre numéro de licence sur <a href="https://www.caflarochebonneville.fr/">caflarochebonneville.fr</a>.</p>
+        <img src="/image.png" alt="Page de connexion pour licenciés">
 
-    <!-- Step 2 -->
-    <div id="step2" class="step">
+        <h3>Cas 2 : Vous n’êtes pas encore licencié</h3>
+        <p>Attendez la validation de votre inscription avant de prendre votre licence (à partir du 1er septembre). Connectez-vous via votre e-mail sur <a href="https://www.caflarochebonneville.fr/cours.html">Espace d’inscription</a> puis cliquez sur <strong>Connexion</strong>. Vérifiez vos spams si nécessaire.</p>
+        <img src="/image 1.png" alt="Page de connexion par e-mail">
+      </article>
+      <div class="nav-buttons">
+        <a href="#overview" class="prev">Précédent</a>
+        <a href="#step2" class="next">Suivant</a>
+      </div>
+    </section>
+
+    <section id="step2">
       <h2>2️⃣ Coordonnées</h2>
-      <p>Cliquez sur <strong>Étape suivante</strong> ou <strong>Coordonnées</strong> :</p>
-      <img src="image%202.png" alt="Écran coordonnées">
-      <p>Remplissez vos coordonnées :</p>
-      <img src="image%203.png" alt="Formulaire coordonnées">
-      <div class="aside">
-        <p>💡 Vous étiez déjà inscrit l’année dernière :</p>
-        <p>✅ Vos coordonnées sont déjà remplies et gérées par la FFCAM.<br>Si elles sont erronées, mettez-les à jour sur le site de la fédération.</p>
+      <p>Cliquez sur <strong>Étape suivante</strong> ou <strong>Coordonnées</strong> et remplissez vos informations de contact.</p>
+      <img src="/image 2.png" alt="Formulaire coordonnées">
+      <img src="/image 3.png" alt="Exemple de coordonnées remplies">
+      <aside>
+        <h3>Si vous étiez déjà inscrit l’année dernière</h3>
+        <p>Vos coordonnées sont pré-remplies par la FFCAM. Mettez-les à jour sur le site de la fédération si besoin.</p>
+      </aside>
+      <div class="nav-buttons">
+        <a href="#step1" class="prev">Précédent</a>
+        <a href="#step3" class="next">Suivant</a>
       </div>
-      <div class="buttons">
-        <button id="prev2">← Retour</button>
-        <button id="next2">Étape 3 →</button>
-      </div>
-    </div>
+    </section>
 
-    <!-- Step 3 -->
-    <div id="step3" class="step">
+    <section id="step3">
       <h2>3️⃣ Sélectionner la personne à inscrire</h2>
-      <p>Cliquez sur <strong>Étape suivante</strong> ou <strong>Inscription</strong> et sélectionnez :</p>
-      <label><input type="radio" name="personType" value="old"> Cas 1 : Vous étiez déjà inscrit l’année dernière</label><br>
-      <label><input type="radio" name="personType" value="new"> Cas 2 : Première inscription</label>
-      <div id="person-old" class="choice-content" style="display:none;">
-        <p>✅ Sélectionnez votre nom dans la liste proposée.</p>
-        <img src="image%204.png" alt="Liste noms">
+      <p>Cliquez sur <strong>Étape suivante</strong> ou <strong>Inscription</strong> et suivez les instructions.</p>
+      <img src="/image 4.png" alt="Sélection de la personne">
+      <div class="cases">
+        <div>
+          <h3>Cas 1 : Inscrit l’an dernier</h3>
+          <p>Sélectionnez votre nom dans la liste.</p>
+        </div>
+        <div>
+          <h3>Cas 2 : Première inscription</h3>
+          <p>Entrez nom, prénom, date de naissance (détermine le niveau de cours).</p>
+        </div>
       </div>
-      <div id="person-new" class="choice-content" style="display:none;">
-        <p>✅ Entrez les informations personnelles de l’élève (nom, prénom, date de naissance).<br>📌 Attention : la date de naissance détermine l’accès aux niveaux de cours.</p>
+      <div class="nav-buttons">
+        <a href="#step2" class="prev">Précédent</a>
+        <a href="#allocation" class="next">Suivant</a>
       </div>
-      <div class="buttons">
-        <button id="prev3">← Retour</button>
-        <button id="next3" disabled>Étape 4 →</button>
-      </div>
-    </div>
+    </section>
 
-    <!-- Step 4 -->
-    <div id="step4" class="step">
+    <section id="allocation">
+      <h2>📝 Processus d’attribution des créneaux</h2>
+      <p>L’attribution suit cet ordre :</p>
+      <ol>
+        <li>Validation post-paiement.</li>
+        <li>Classement selon vos préférences.</li>
+        <li>Test des créneaux demandés dans l’ordre.</li>
+        <li>Placement en liste d’attente si nécessaire.</li>
+      </ol>
+      <img src="/pako.jpg" alt="Schéma du processus d'attribution">
+      <div class="nav-buttons">
+        <a href="#step3" class="prev">Précédent</a>
+        <a href="#step4" class="next">Suivant</a>
+      </div>
+    </section>
+
+    <section id="step4">
       <h2>4️⃣ Choisir un cours</h2>
-      <div class="aside tip">
-        <p>🧒 <strong>Débutants / Confirmés pour les jeunes</strong> :</p>
-        <ul>
-          <li>Tous les nouveaux élèves commencent en <strong>Débutant</strong>, même s’ils ont déjà pratiqué l’escalade.</li>
-          <li>L’objectif est d’apprendre les <strong>bases de l’assurage</strong>, les <strong>techniques fondamentales</strong> et les <strong>règles de sécurité</strong>.</li>
-          <li>📅 Après une première année en Débutant, passage en catégorie Confirmé.</li>
-        </ul>
+      <div class="boxes">
+        <aside>
+          <h3>Jeunes (primaire et collège)</h3>
+          <p>Tous commencent en Débutant; progression vers Confirmé après une année.</p>
+        </aside>
+        <aside>
+          <h3>Adultes</h3>
+          <p><strong>Loisir</strong> : tous niveaux. <strong>Perfectionnement</strong> : base technique requise.</p>
+        </aside>
+        <aside>
+          <h3>Groupes soumis à approbation</h3>
+          <ul>
+            <li>Perf.</li>
+            <li>Pré-compétition 6-8 ans</li>
+            <li>Compétition U12-U14, U16-Vétéran</li>
+          </ul>
+        </aside>
       </div>
-      <div class="aside tip">
-        <p>👨‍🎓 <strong>Loisirs / Perfectionnement pour les adultes</strong> :</p>
-        <ul>
-          <li><strong>Loisir</strong> : accessible à tous niveaux, y compris débutants.</li>
-          <li><strong>Perfectionnement</strong> : réservé aux grimpeurs ayant déjà une base technique.</li>
-        </ul>
+      <div class="nav-buttons">
+        <a href="#allocation" class="prev">Précédent</a>
+        <a href="#step6" class="next">Suivant</a>
       </div>
-      <div class="aside warning">
-        <p>⚠️ <strong>Groupes soumis à l’approbation des entraîneurs</strong> :</p>
-        <ul>
-          <li>Groupe Perf.</li>
-          <li>Pré-compétition 6 - 8 ans</li>
-          <li>Compétition U12 et U14</li>
-          <li>Compétition U16 à Vétéran</li>
-        </ul>
-      </div>
-      <div class="buttons">
-        <button id="prev4">← Retour</button>
-        <button id="next4">Étape 5 →</button>
-      </div>
-    </div>
+    </section>
 
-    <!-- Step 5 -->
-    <div id="step5" class="step">
-      <h2>5️⃣ Processus d’attribution des créneaux</h2>
-      <p>📝 Processus d’attribution :</p>
+    <section id="step6">
+      <h2>6️⃣ Préférences horaires et moniteurs</h2>
+      <div class="prefs">
+        <aside>
+          <h3>Créneaux horaires</h3>
+          <p>Montez/descendez/supprimez vos créneaux selon vos préférences.</p>
+        </aside>
+        <aside>
+          <h3>Moniteurs</h3>
+          <p>Sélectionnez <em>Oui</em>, <em>Non</em> ou <em>Peu importe</em> pour donner la priorité à un moniteur.</p>
+        </aside>
+        <aside>
+          <h3>Remarques</h3>
+          <p>Un créneau indiqué <em>(Complet)</em> n’est plus disponible immédiatement.</p>
+        </aside>
+      </div>
+      <div class="nav-buttons">
+        <a href="#step4" class="prev">Précédent</a>
+        <a href="#step7" class="next">Suivant</a>
+      </div>
+    </section>
+
+    <section id="step7">
+      <h2>7️⃣ Valider et accepter le règlement</h2>
       <ol>
-        <li>Inscription validée uniquement après paiement.</li>
-        <li>Créneaux classés selon préférences de l’utilisateur.</li>
-        <li>Test du premier choix : si dispo & moniteur dispo → confirmée.</li>
-        <li>Sinon tests suivants ; si aucun dispo → liste d’attente.</li>
+        <li>Droit à l’image</li>
+        <li>Vérification des informations et créneau</li>
       </ol>
-      <img src="PAKO.jpg" alt="Schéma attribution créneaux">
-      <div class="buttons">
-        <button id="prev5">← Retour</button>
-        <button id="next5">Étape 6 →</button>
+      <p>Cliquez sur <strong>Valider cette inscription</strong>. (Inscription validée uniquement après paiement.)</p>
+      <img src="/image 6.png" alt="Validation inscription">
+      <div class="nav-buttons">
+        <a href="#step6" class="prev">Précédent</a>
+        <a href="#step8" class="next">Suivant</a>
       </div>
-    </div>
+    </section>
 
-    <!-- Step 6 -->
-    <div id="step6" class="step">
-      <h2>6️⃣ Indiquer ses préférences créneaux horaires et moniteurs</h2>
-      <div class="aside">
-        <p>🕝 <strong>Créneaux horaires</strong> :</p>
-        <ul>
-          <li>Cliquez sur ⬆ pour monter en haut.</li>
-          <li>Cliquez sur ⬇ pour descendre en bas.</li>
-          <li>Cliquez sur ✖ pour supprimer (plus vous limitez, moins de chances).</li>
-        </ul>
-      </div>
-      <div class="aside">
-        <p>🙍‍♂️ <strong>Moniteurs</strong> :</p>
-        <ul>
-          <li>Oui → priorité ancien moniteur.</li>
-          <li>Non → autre moniteur disponible.</li>
-          <li>Peu importe → plus de flexibilité.</li>
-        </ul>
-      </div>
-      <div class="aside warning">
-        <p>⚠️ Un créneau indiqué (Complet) est plein ; un dispo peut être déjà en cours de remplissage.</p>
-      </div>
-      <div class="buttons">
-        <button id="prev6">← Retour</button>
-        <button id="next6">Étape 7 →</button>
-      </div>
-    </div>
-
-    <!-- Step 7 -->
-    <div id="step7" class="step">
-      <h2>7️⃣ Valider les informations et accepter le règlement</h2>
-      <ol>
-        <li>Droit à l’image : Autorisez ou refusez l’utilisation de photos/vidéos.</li>
-        <li>Vérification des informations personnelles et du créneau choisi.</li>
-      </ol>
-      <p>Si tout est bon, cliquez sur <strong>Valider cette inscription</strong>.</p>
-      <aside class="aside warning">
-        <p>⚠️ Une inscription n’est validée qu’après paiement !</p>
-      </aside>
-      <img src="image%206.png" alt="Validation inscription">
-      <div class="buttons">
-        <button id="prev7">← Retour</button>
-        <button id="next7">Étape 8 →</button>
-      </div>
-    </div>
-
-    <!-- Step 8 -->
-    <div id="step8" class="step">
+    <section id="step8">
       <h2>8️⃣ Paiement de l'inscription</h2>
-      <p>Le paiement s’effectue <strong>exclusivement en ligne</strong> via HelloAsso :</p>
-      <img src="image%207.png" alt="Paiement HelloAsso">
-      <aside class="aside">
-        <p>✅ Une fois votre paiement effectué, votre inscription est finalisée.</p>
-        <p>Attribution ou liste d’attente sous ≈1 semaine (notification interne).</p>
+      <p>Paiement en ligne via HelloAsso.</p>
+      <img src="/image 7.png" alt="Page de paiement HelloAsso">
+      <aside>
+        <p>✅ Une fois le paiement effectué, inscription finalisée. Délai d’attribution : environ 1 semaine. Notification dans la messagerie interne.</p>
       </aside>
-      <img src="image%208.png" alt="Confirmation inscription">
-      <div class="buttons">
-        <button id="prev8">← Retour</button>
-        <button id="finish">Terminer</button>
+      <img src="/image 8.png" alt="Notification d'attribution">
+      <div class="nav-buttons">
+        <a href="#step7" class="prev">Précédent</a>
       </div>
-    </div>
+    </section>
 
   </main>
+  <footer>
+    <p>&copy; 2025 CAF La Roche - Bonneville</p>
+  </footer>
+
+  <!-- Petite animation fade-in pour chaque section -->
   <script>
-    const steps = Array.from(document.querySelectorAll('.step'));
-    let index = 0;
-    function show(i) {
-      steps.forEach((s, idx) => s.classList.toggle('active', idx === i));
-    }
-    document.getElementById('next0').onclick = () => { index = 1; show(index); };
-    document.getElementById('prev1').onclick = () => { index = 0; show(index); };
-    document.getElementsByName('licensed').forEach(r => r.onchange = e => {
-      document.getElementById('lic-yes').style.display = e.target.value==='yes'?'block':'none';
-      document.getElementById('lic-no').style.display = e.target.value==='no'?'block':'none';
-      document.getElementById('next1').disabled = false;
+    document.addEventListener('DOMContentLoaded', function() {
+      const sections = document.querySelectorAll('section');
+      const observer = new IntersectionObserver(entries =&gt; {
+        entries.forEach(entry =&gt; {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+      sections.forEach(s =&gt; observer.observe(s));
     });
-    document.getElementById('next1').onclick = () => { index = 2; show(index); };
-    document.getElementById('prev2').onclick = () => { index = 1; show(index); };
-    document.getElementById('next2').onclick = () => { index = 3; show(index); };
-    document.getElementById('prev3').onclick = () => { index = 2; show(index); };
-    document.getElementsByName('personType').forEach(r => r.onchange = e => {
-      document.getElementById('person-old').style.display = e.target.value==='old'?'block':'none';
-      document.getElementById('person-new').style.display = e.target.value==='new'?'block':'none';
-      document.getElementById('next3').disabled = false;
-    });
-    document.getElementById('next3').onclick = () => { index = 4; show(index); };
-    document.getElementById('prev4').onclick = () => { index = 3; show(index); };
-    document.getElementById('next4').onclick = () => { index = 5; show(index); };
-    document.getElementById('prev5').onclick = () => { index = 4; show(index); };
-    document.getElementById('next5').onclick = () => { index = 6; show(index); };
-    document.getElementById('prev6').onclick = () => { index = 5; show(index); };
-    document.getElementById('next6').onclick = () => { index = 7; show(index); };
-    document.getElementById('prev7').onclick = () => { index = 6; show(index); };
-    document.getElementById('next7').onclick = () => { index = 8; show(index); };
-    document.getElementById('prev8').onclick = () => { index = 7; show(index); };
-    document.getElementById('finish').onclick = () => { alert('Vous avez terminé le tutoriel !'); };
   </script>
 </body>
-</html>
+
+
+/* File: styles.css */
+/* Reset de base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  padding-top: 60px;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 20px;
+  z-index: 1000;
+}
+
+#toc ul {
+  list-style: none;
+  display: flex;
+  overflow-x: auto;
+}
+
+#toc li {
+  margin-right: 15px;
+}
+
+#toc a {
+  text-decoration: none;
+  color: #007BFF;
+}
+
+main {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+section {
+  margin-bottom: 60px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+section.visible {
+  opacity: 1;
+  transform: none;
+}
+
+h1, h2, h3 {
+  margin-bottom: 10px;
+}
+
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.nav-buttons a {
+  text-decoration: none;
+  padding: 8px 12px;
+  border: 1px solid #007BFF;
+  border-radius: 4px;
+}
+
+.nav-buttons .prev {
+  background: #f8f9fa;
+  color: #007BFF;
+}
+
+.nav-buttons .next {
+  background: #007BFF;
+  color: #fff;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  margin: 15px 0;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #f8f9fa;
+}
+
