@@ -1,307 +1,352 @@
-<!-- File: index.html -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Guide d'inscription aux cours d'escalade - CAF La Roche - Bonneville</title>
-  <meta name="description" content="Guide pas à pas pour l'inscription aux cours d'escalade du CAF La Roche - Bonneville.">
-  <link rel="stylesheet" href="styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tutoriel d’Inscription aux Cours d’Escalade – CAF La Roche ‑ Bonneville</title>
+  <style>
+    /* Reset & Box Sizing */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* Global Styles */
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+    }
+    a { color: #2980b9; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    img { max-width: 100%; display: block; margin: 1rem 0; border-radius: 4px; }
+
+    /* Container */
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    header h1 {
+      font-size: 2rem;
+      color: #2c3e50;
+      margin-bottom: .5rem;
+    }
+    header p {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    /* Step Sections */
+    .step {
+      background: #fff;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .step h2 {
+      font-size: 1.25rem;
+      color: #2c3e50;
+      margin-bottom: .75rem;
+      display: flex;
+      align-items: center;
+    }
+    .step-number {
+      display: inline-block;
+      background: #3498db;
+      color: #fff;
+      font-weight: bold;
+      width: 2rem;
+      height: 2rem;
+      text-align: center;
+      line-height: 2rem;
+      border-radius: 50%;
+      margin-right: .5rem;
+    }
+
+    /* Callout Asides */
+    aside {
+      display: flex;
+      align-items: flex-start;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-left: 4px solid;
+      border-radius: 4px;
+    }
+    aside img.icon {
+      margin-right: 1rem;
+      flex-shrink: 0;
+    }
+    aside.pill-blue { background: #eaf8ff; border-color: #3498db; }
+    aside.light-bulb-yellow { background: #fffae6; border-color: #f1c40f; }
+    aside.warning { background: #fdecea; border-color: #e74c3c; }
+    aside .content { flex: 1; }
+    aside h3 {
+      font-size: 1rem;
+      margin-bottom: .5rem;
+      color: #2c3e50;
+    }
+    aside p, aside ul { margin-bottom: .5rem; }
+
+    /* Smooth scroll for anchors */
+    html { scroll-behavior: smooth; }
+
+    /* Navigation Steps (optional) */
+    nav.steps {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    nav.steps li {
+      margin: .25rem .5rem;
+    }
+    nav.steps a {
+      display: block;
+      padding: .5rem 1rem;
+      background: #fff;
+      border-radius: 4px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+      color: #3498db;
+      font-size: .9rem;
+    }
+    nav.steps a:hover, nav.steps a.active {
+      background: #3498db;
+      color: #fff;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Guide d'inscription aux cours d'escalade</h1>
-    <nav id="toc" aria-label="Table des matières">
-      <ul>
-        <li><a href="#overview">Processus en un coup d'œil</a></li>
-        <li><a href="#step1">1. Accéder à la plateforme</a></li>
-        <li><a href="#step2">2. Coordonnées</a></li>
-        <li><a href="#step3">3. Sélection de la personne</a></li>
-        <li><a href="#allocation">Processus d’attribution des créneaux</a></li>
-        <li><a href="#step4">4. Choisir un cours</a></li>
-        <li><a href="#step6">6. Préférences horaires et moniteurs</a></li>
-        <li><a href="#step7">7. Validation et règlement</a></li>
-        <li><a href="#step8">8. Paiement</a></li>
-      </ul>
-    </nav>
-  </header>
-  <main>
+  <div class="container">
+    <header>
+      <h1>Tutoriel d’Inscription aux Cours d’Escalade</h1>
+      <p>Ce guide vous explique, <strong>étape par étape</strong>, comment vous inscrire aux cours d’escalade du <strong>CAF La Roche - Bonneville</strong>.</p>
+    </header>
 
-    <section id="overview">
-      <h2>📌 Processus d’Inscription en un coup d'œil</h2>
-      <ol>
-        <li>Vous remplissez le formulaire d’inscription.</li>
-        <li>Un lien de paiement HelloAsso est envoyé.</li>
-        <li>Vous effectuez le paiement.</li>
-        <li>Confirmation envoyée au site.</li>
-        <li>Attribution des cours (±1 semaine).</li>
-        <li>Validation dans la messagerie du site.</li>
-        <li>Vérification de votre inscription.</li>
-        <li>Email d’information fin août.</li>
-      </ol>
-      <img src="/mermaid-diagram-2025-02-04-140308.png" alt="Diagramme du processus d'inscription">
-    </section>
-
-    <section id="step1">
-      <h2>1️⃣ Accéder à la plateforme d'inscription</h2>
-      <article>
-        <h3>Cas 1 : Vous êtes déjà licencié</h3>
-        <p>Connectez-vous avec votre numéro de licence sur <a href="https://www.caflarochebonneville.fr/">caflarochebonneville.fr</a>.</p>
-        <img src="/image.png" alt="Page de connexion pour licenciés">
-
-        <h3>Cas 2 : Vous n’êtes pas encore licencié</h3>
-        <p>Attendez la validation de votre inscription avant de prendre votre licence (à partir du 1er septembre). Connectez-vous via votre e-mail sur <a href="https://www.caflarochebonneville.fr/cours.html">Espace d’inscription</a> puis cliquez sur <strong>Connexion</strong>. Vérifiez vos spams si nécessaire.</p>
-        <img src="/image 1.png" alt="Page de connexion par e-mail">
-      </article>
-      <div class="nav-buttons">
-        <a href="#overview" class="prev">Précédent</a>
-        <a href="#step2" class="next">Suivant</a>
+    <aside class="light-bulb-yellow">
+      <img src="https://www.notion.so/icons/light-bulb_yellow.svg" alt="Astuce" class="icon" width="40">
+      <div class="content">
+        <p><strong>Avant de commencer :</strong></p>
+        <ul>
+          <li>Assurez-vous de respecter les <strong>dates d’ouverture des inscriptions</strong>.</li>
+          <li>Préparez votre <strong>moyen de paiement</strong> (carte bancaire via HelloAsso).</li>
+          <li>La <strong>licence CAF</strong> est obligatoire (à prendre <em>après</em> validation de votre inscription).</li>
+        </ul>
       </div>
+    </aside>
+
+    <!-- Aperçu -->
+    <section id="overview" class="step">
+      <h2><span class="step-number">📌</span> Processus d’Inscription en un coup d'œil</h2>
+      <ol>
+        <li>L’utilisateur <strong>remplit son formulaire</strong> sur le site.</li>
+        <li>Un <strong>lien de paiement</strong> est envoyé via HelloAsso.</li>
+        <li>L’utilisateur <strong>effectue son paiement</strong>.</li>
+        <li>Confirmation du paiement envoyée au site.</li>
+        <li>Le club attribue les cours (±1 semaine de délai).</li>
+        <li>Inscription validée dans la messagerie interne.</li>
+        <li>L’utilisateur peut vérifier son inscription.</li>
+        <li>E-mail d’information envoyé fin août.</li>
+      </ol>
+      <img src="mermaid-diagram-2025-02-04-140308.png" alt="Diagramme du processus d'inscription">
     </section>
 
-    <section id="step2">
-      <h2>2️⃣ Coordonnées</h2>
-      <p>Cliquez sur <strong>Étape suivante</strong> ou <strong>Coordonnées</strong> et remplissez vos informations de contact.</p>
-      <img src="/image 2.png" alt="Formulaire coordonnées">
-      <img src="/image 3.png" alt="Exemple de coordonnées remplies">
-      <aside>
-        <h3>Si vous étiez déjà inscrit l’année dernière</h3>
-        <p>Vos coordonnées sont pré-remplies par la FFCAM. Mettez-les à jour sur le site de la fédération si besoin.</p>
+    <!-- Étape 1 -->
+    <section id="step1" class="step">
+      <h2><span class="step-number">1️⃣</span> Accéder à la plateforme d'inscription</h2>
+
+      <aside class="pill-blue">
+        <img src="https://www.notion.so/icons/pill_blue.svg" alt="Info" class="icon" width="40">
+        <div class="content">
+          <h3>Cas 1 : Vous êtes déjà licencié au CAF La Roche Bonneville</h3>
+          <p>✅ Connectez-vous avec votre numéro de licence ici :</p>
+          <p><a href="https://www.caflarochebonneville.fr/">caflarochebonneville.fr</a></p>
+          <img src="image.png" alt="Page de connexion licence CAF">
+        </div>
       </aside>
-      <div class="nav-buttons">
-        <a href="#step1" class="prev">Précédent</a>
-        <a href="#step3" class="next">Suivant</a>
-      </div>
-    </section>
 
-    <section id="step3">
-      <h2>3️⃣ Sélectionner la personne à inscrire</h2>
-      <p>Cliquez sur <strong>Étape suivante</strong> ou <strong>Inscription</strong> et suivez les instructions.</p>
-      <img src="/image 4.png" alt="Sélection de la personne">
-      <div class="cases">
-        <div>
-          <h3>Cas 1 : Inscrit l’an dernier</h3>
-          <p>Sélectionnez votre nom dans la liste.</p>
+      <aside class="pill-blue">
+        <img src="https://www.notion.so/icons/pill_blue.svg" alt="Info" class="icon" width="40">
+        <div class="content">
+          <h3>Cas 2 : Vous n’êtes pas encore licencié</h3>
+          <ul>
+            <li>✅ Attendez la validation de votre inscription avant de prendre votre licence (après le 1<sup>er</sup> septembre).</li>
+            <li>✅ Connectez-vous via votre adresse e-mail :</li>
+          </ul>
+          <p><a href="https://www.caflarochebonneville.fr/cours.html">Espace d’inscription</a> → <em>Connexion</em></p>
+          <p>❗ Si pas d’e-mail, vérifiez les indésirables (spam).</p>
+          <img src="image%201.png" alt="Connexion par e-mail">
         </div>
-        <div>
-          <h3>Cas 2 : Première inscription</h3>
-          <p>Entrez nom, prénom, date de naissance (détermine le niveau de cours).</p>
+      </aside>
+    </section>
+
+    <!-- Étape 2 -->
+    <section id="step2" class="step">
+      <h2><span class="step-number">2️⃣</span> Coordonnées</h2>
+      <p>Une fois connecté, cliquez sur <strong>„Étape suivante”</strong> ou <strong>„Coordonnées”</strong> :</p>
+      <img src="image%202.png" alt="Accès au formulaire coordonnées">
+      <p>Remplissez vos coordonnées (utilisées exclusivement pour le suivi). :</p>
+      <img src="image%203.png" alt="Formulaire coordonnées">
+
+      <aside class="light-bulb-yellow">
+        <img src="https://www.notion.so/icons/light-bulb_yellow.svg" alt="Astuce" class="icon" width="40">
+        <div class="content">
+          <h3>Vous étiez déjà inscrit l’année dernière</h3>
+          <p>✅ Vos coordonnées sont déjà enregistrées par la FFCAM. Pour les modifier, connectez-vous sur le site de la fédération.</p>
         </div>
-      </div>
-      <div class="nav-buttons">
-        <a href="#step2" class="prev">Précédent</a>
-        <a href="#allocation" class="next">Suivant</a>
-      </div>
+      </aside>
     </section>
 
-    <section id="allocation">
-      <h2>📝 Processus d’attribution des créneaux</h2>
-      <p>L’attribution suit cet ordre :</p>
-      <ol>
-        <li>Validation post-paiement.</li>
-        <li>Classement selon vos préférences.</li>
-        <li>Test des créneaux demandés dans l’ordre.</li>
-        <li>Placement en liste d’attente si nécessaire.</li>
-      </ol>
-      <img src="/pako.jpg" alt="Schéma du processus d'attribution">
-      <div class="nav-buttons">
-        <a href="#step3" class="prev">Précédent</a>
-        <a href="#step4" class="next">Suivant</a>
-      </div>
+    <!-- Étape 3 -->
+    <section id="step3" class="step">
+      <h2><span class="step-number">3️⃣</span> Sélectionner la personne à inscrire</h2>
+      <p>Cliquez sur <strong>„Étape suivante”</strong> ou <strong>„Inscription”</strong> :</p>
+      <img src="image%204.png" alt="Sélection de l’élève">
+
+      <aside class="pill-blue">
+        <img src="https://www.notion.so/icons/pill_blue.svg" alt="Info" class="icon" width="40">
+        <div class="content">
+          <h3>Cas 1 : Vous étiez déjà inscrit l’année dernière</h3>
+          <p>✅ Sélectionnez votre nom dans la liste.</p>
+        </div>
+      </aside>
+
+      <aside class="pill-blue">
+        <img src="https://www.notion.so/icons/pill_blue.svg" alt="Info" class="icon" width="40">
+        <div class="content">
+          <h3>Cas 2 : Première inscription</h3>
+          <p>✅ Entrez les informations personnelles (nom, prénom, date de naissance).</p>
+          <p>📌 La date de naissance détermine le niveau de cours.</p>
+        </div>
+      </aside>
     </section>
 
-    <section id="step4">
-      <h2>4️⃣ Choisir un cours</h2>
-      <div class="boxes">
-        <aside>
-          <h3>Jeunes (primaire et collège)</h3>
-          <p>Tous commencent en Débutant; progression vers Confirmé après une année.</p>
-        </aside>
-        <aside>
-          <h3>Adultes</h3>
-          <p><strong>Loisir</strong> : tous niveaux. <strong>Perfectionnement</strong> : base technique requise.</p>
-        </aside>
-        <aside>
-          <h3>Groupes soumis à approbation</h3>
+    <!-- Processus d’attribution -->
+    <section id="allocation" class="step">
+      <h2><span class="step-number">📝</span> Processus d’attribution des créneaux</h2>
+      <aside>
+        <div class="content">
+          <p><strong>L’attribution des créneaux est un processus clé.</strong> Pour maximiser vos chances, choisissez bien vos créneaux et votre préférence de moniteur.</p>
+          <ol>
+            <li>Inscription validée après réception du paiement.</li>
+            <li>Classement selon vos préférences.</li>
+            <li>Test du 1er choix : si disponible ✅, sinon test suivant.</li>
+            <li>Si aucun disponible → liste d’attente ⏳.</li>
+          </ol>
+          <p>Schéma :</p>
+        </div>
+      </aside>
+      <img src="pako.jpg" alt="Schéma d’attribution des créneaux">
+    </section>
+
+    <!-- Étape 4 -->
+    <section id="step4" class="step">
+      <h2><span class="step-number">4️⃣</span> Choisir un cours</h2>
+
+      <aside>
+        <div class="content">
+          <h3>🧒 Débutants / Confirmés (jeunes)</h3>
+          <ul>
+            <li>Tous les nouveaux commencent Débutant (assurage, fondamentaux, sécurité).</li>
+            <li>Après 1 an, passage en Confirmé.</li>
+          </ul>
+        </div>
+      </aside>
+
+      <aside>
+        <div class="content">
+          <h3>👨‍🎓 Loisirs / Perfectionnement (adultes)</h3>
+          <p><strong>Loisir</strong> : accessible à tous, rythme libre.<br>
+             <strong>Perfectionnement</strong> : base technique souhaitée, travail spécifique.</p>
+        </div>
+      </aside>
+
+      <aside class="warning">
+        <img src="https://www.notion.so/icons/pill_blue.svg" alt="Attention" class="icon" width="40">
+        <div class="content">
+          <h3>Groupes soumis à l’approbation</h3>
           <ul>
             <li>Perf.</li>
-            <li>Pré-compétition 6-8 ans</li>
-            <li>Compétition U12-U14, U16-Vétéran</li>
+            <li>Pré‑compétition 6‑8 ans</li>
+            <li>Compétition U12‑U14</li>
+            <li>Compétition U16‑Vétéran</li>
           </ul>
-        </aside>
-      </div>
-      <div class="nav-buttons">
-        <a href="#allocation" class="prev">Précédent</a>
-        <a href="#step6" class="next">Suivant</a>
-      </div>
-    </section>
-
-    <section id="step6">
-      <h2>6️⃣ Préférences horaires et moniteurs</h2>
-      <div class="prefs">
-        <aside>
-          <h3>Créneaux horaires</h3>
-          <p>Montez/descendez/supprimez vos créneaux selon vos préférences.</p>
-        </aside>
-        <aside>
-          <h3>Moniteurs</h3>
-          <p>Sélectionnez <em>Oui</em>, <em>Non</em> ou <em>Peu importe</em> pour donner la priorité à un moniteur.</p>
-        </aside>
-        <aside>
-          <h3>Remarques</h3>
-          <p>Un créneau indiqué <em>(Complet)</em> n’est plus disponible immédiatement.</p>
-        </aside>
-      </div>
-      <div class="nav-buttons">
-        <a href="#step4" class="prev">Précédent</a>
-        <a href="#step7" class="next">Suivant</a>
-      </div>
-    </section>
-
-    <section id="step7">
-      <h2>7️⃣ Valider et accepter le règlement</h2>
-      <ol>
-        <li>Droit à l’image</li>
-        <li>Vérification des informations et créneau</li>
-      </ol>
-      <p>Cliquez sur <strong>Valider cette inscription</strong>. (Inscription validée uniquement après paiement.)</p>
-      <img src="/image 6.png" alt="Validation inscription">
-      <div class="nav-buttons">
-        <a href="#step6" class="prev">Précédent</a>
-        <a href="#step8" class="next">Suivant</a>
-      </div>
-    </section>
-
-    <section id="step8">
-      <h2>8️⃣ Paiement de l'inscription</h2>
-      <p>Paiement en ligne via HelloAsso.</p>
-      <img src="/image 7.png" alt="Page de paiement HelloAsso">
-      <aside>
-        <p>✅ Une fois le paiement effectué, inscription finalisée. Délai d’attribution : environ 1 semaine. Notification dans la messagerie interne.</p>
+        </div>
       </aside>
-      <img src="/image 8.png" alt="Notification d'attribution">
-      <div class="nav-buttons">
-        <a href="#step7" class="prev">Précédent</a>
-      </div>
     </section>
 
-  </main>
-  <footer>
-    <p>&copy; 2025 CAF La Roche - Bonneville</p>
-  </footer>
+    <!-- Étape 6 -->
+    <section id="step6" class="step">
+      <h2><span class="step-number">6️⃣</span> Indiquer ses préférences créneaux et moniteurs</h2>
 
-  <!-- Petite animation fade-in pour chaque section -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const sections = document.querySelectorAll('section');
-      const observer = new IntersectionObserver(entries =&gt; {
-        entries.forEach(entry =&gt; {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, { threshold: 0.1 });
-      sections.forEach(s =&gt; observer.observe(s));
-    });
-  </script>
+      <aside>
+        <div class="content">
+          <h3>🕝 Créneaux horaires</h3>
+          <ul>
+            <li>Cliquez sur ⬆ pour monter, ⬇ pour descendre, ✖ pour supprimer.</li>
+            <li>Attention : limiter vos choix réduit vos chances.</li>
+          </ul>
+        </div>
+      </aside>
+
+      <aside>
+        <div class="content">
+          <h3>🙍‍♂️ Moniteurs</h3>
+          <ul>
+            <li>Oui : priorité à l’ancien moniteur.</li>
+            <li>Non : autre moniteur selon dispo.</li>
+            <li>Peu importe : flexibilité maximale.</li>
+          </ul>
+        </div>
+      </aside>
+
+      <aside class="light-bulb-yellow">
+        <img src="https://www.notion.so/icons/light-bulb_yellow.svg" alt="Astuce" class="icon" width="40">
+        <div class="content">
+          <p>Si un créneau est <strong>(Complet)</strong>, il n’y a plus de places.</p>
+          <p>Un créneau marqué <strong>disponible</strong> peut déjà être en cours de remplissage.</p>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Étape 7 -->
+    <section id="step7" class="step">
+      <h2><span class="step-number">7️⃣</span> Valider les informations et accepter le règlement</h2>
+      <ol>
+        <li>Droit à l’image : autorisez ou refusez.</li>
+        <li>Vérifiez vos infos et créneau choisi.</li>
+      </ol>
+      <p>Cliquez sur “Valider cette inscription”.</p>
+      <aside class="warning">
+        <img src="https://www.notion.so/icons/pill_blue.svg" alt="Attention" class="icon" width="40">
+        <div class="content">
+          <p>⚠️ Une inscription n’est validée qu’après paiement !</p>
+        </div>
+      </aside>
+      <img src="image%206.png" alt="Validation de l'inscription">
+    </section>
+
+    <!-- Étape 8 -->
+    <section id="step8" class="step">
+      <h2><span class="step-number">8️⃣</span> Paiement de l'inscription</h2>
+      <p>Le paiement s’effectue en ligne via HelloAsso.</p>
+      <img src="image%207.png" alt="Page de paiement HelloAsso">
+
+      <aside class="pill-blue">
+        <img src="https://www.notion.so/icons/pill_blue.svg" alt="Info" class="icon" width="40">
+        <div class="content">
+          <p>✅ Une fois le paiement effectué, votre inscription est finalisée.</p>
+          <p>Délai d’attribution : environ 1 semaine (notification interne).</p>
+        </div>
+      </aside>
+      <img src="image%208.png" alt="Confirmation finale">
+    </section>
+  </div>
 </body>
-
-
-/* File: styles.css */
-/* Reset de base */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  color: #333;
-  padding-top: 60px;
-}
-
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: #fff;
-  border-bottom: 1px solid #ddd;
-  padding: 10px 20px;
-  z-index: 1000;
-}
-
-#toc ul {
-  list-style: none;
-  display: flex;
-  overflow-x: auto;
-}
-
-#toc li {
-  margin-right: 15px;
-}
-
-#toc a {
-  text-decoration: none;
-  color: #007BFF;
-}
-
-main {
-  max-width: 800px;
-  margin: auto;
-  padding: 20px;
-}
-
-section {
-  margin-bottom: 60px;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-section.visible {
-  opacity: 1;
-  transform: none;
-}
-
-h1, h2, h3 {
-  margin-bottom: 10px;
-}
-
-.nav-buttons {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
-.nav-buttons a {
-  text-decoration: none;
-  padding: 8px 12px;
-  border: 1px solid #007BFF;
-  border-radius: 4px;
-}
-
-.nav-buttons .prev {
-  background: #f8f9fa;
-  color: #007BFF;
-}
-
-.nav-buttons .next {
-  background: #007BFF;
-  color: #fff;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  margin: 15px 0;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  background: #f8f9fa;
-}
-
+</html>
