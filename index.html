@@ -1,254 +1,160 @@
 <!DOCTYPE html>
 <html lang='fr'>
 <head>
-  <meta charset='UTF-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tutoriel d’Inscription aux Cours d’Escalade</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body { font-family: Arial, sans-serif; margin:20px; max-width:800px; }
-    .step { display:none; }
-    .active { display:block; }
-    .navigation { margin-top:20px; text-align:center; }
-    button { padding:10px 20px; margin:5px; font-size:16px; }
-    .progress { margin-bottom:10px; font-weight:bold; }
-    .instruction { background:#e7f3fe; border-left:5px solid #2196F3; padding:10px; margin:10px 0; }
-    .info { background:#f0f4c3; border-left:5px solid #cddc39; padding:10px; margin:10px 0; }
-    .alert { background:#fce4ec; border-left:5px solid #e91e63; padding:10px; margin:10px 0; }
-    .screenshot { display:block; max-width:100%; margin:10px auto; border:1px solid #ccc; }
-    .hidden { display:none; }
-    .case-selector { margin:10px 0; }
-    .case-selector label { display:block; margin-bottom:5px; cursor:pointer; }
-    .case-selector input { margin-right:5px; }
+    :root { --bg: #f9f9f9; --card-bg: #fff; --primary: #0055a5; --info-bg: #e8f4fd; --instruction-bg: #e6ffed; --alert-bg: #fff4e5; --screenshot-bg: #f0f0f0; }
+    body { background-color: var(--bg); font-family: 'Inter', sans-serif; line-height:1.6; color: #333; margin: 0; }
+    .container { max-width: 800px; margin: auto; padding: 20px; }
+    .step { display: none; background: var(--card-bg); padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    .step.active { display: block; }
+    .navigation { text-align: center; margin: 20px 0; }
+    button { background: var(--primary); color: white; border: none; border-radius: 4px; padding:10px 20px; margin: 5px; cursor: pointer; }
+    button:disabled { background: #ccc; cursor: not-allowed; }
+    .part-case { margin-bottom: 10px; }
+    .case-content { display: none; padding: 10px; border-left: 4px solid var(--primary); background: var(--info-bg); border-radius:4px; margin-top:10px; }
+    .instructions { background: var(--instruction-bg); border-left: 4px solid #2ecc71; padding:10px; border-radius:4px; margin:10px 0; }
+    .info { background: var(--info-bg); border-left: 4px solid #3498db; padding:10px; border-radius:4px; margin:10px 0; }
+    .alert { background: var(--alert-bg); border-left: 4px solid #e67e22; padding:10px; border-radius:4px; margin:10px 0; }
+    .screenshot { background: var(--screenshot-bg); padding:10px; border-radius:4px; margin:10px 0; text-align:center; }
+    .screenshot img { max-width: 100%; height: auto; border-radius:4px; }
+    h1, h2 { margin-top: 0; }
   </style>
 </head>
 <body>
-  <div id='progress' class='progress'></div>
-  <div id='steps'>
-    <!-- Step 1 -->
-    <div class='step'>
-      <h1>Tutoriel d’Inscription aux Cours d’Escalade</h1>
-      <p>Ce guide vous explique, <strong>étape par étape</strong>, comment vous inscrire aux cours d’escalade du <strong>CAF La Roche - Bonneville</strong>.</p>
-      <div class='info'>
-        <p>📌 <strong>Avant de commencer</strong> :</p>
-        <ul>
-          <li>Assurez-vous de respecter les <strong>dates d’ouverture des inscriptions</strong>.</li>
-          <li>Préparez votre <strong>moyen de paiement</strong> (paiement uniquement par carte bancaire via HelloAsso).</li>
-          <li>La <strong>licence CAF</strong> est obligatoire pour accéder aux cours (à prendre <strong>uniquement après validation de votre inscription aux cours</strong>).</li>
-        </ul>
-      </div>
-      <h2>📌 Processus d’Inscription en un coup d'œil</h2>
-      <p>L’inscription suit un processus bien défini, détaillé dans le diagramme ci-dessous :</p>
-      <p><strong>Résumé du processus</strong> :</p>
-      <ol>
-        <li>1️⃣ L’utilisateur <strong>remplit son formulaire d’inscription</strong> sur le site.</li>
-        <li>2️⃣ Un <strong>lien de paiement</strong> est envoyé via HelloAsso.</li>
-        <li>3️⃣ L’utilisateur <strong>effectue son paiement</strong>.</li>
-        <li>4️⃣ La <strong>confirmation du paiement</strong> est envoyée au site d’inscription.</li>
-        <li>5️⃣ Le club attribue les cours en fonction des choix et disponibilités (±1 semaine de délai).</li>
-        <li>6️⃣ L’inscription est <strong>validée dans la messagerie du site</strong>.</li>
-        <li>7️⃣ L’utilisateur peut <strong>vérifier son inscription</strong>.</li>
-        <li>8️⃣ Un <strong>e-mail d’information</strong> est envoyé fin août avant le début des cours.</li>
-      </ol>
-      <img src='mermaid-diagram-2025-02-04-140308.png' alt='Diagramme du processus d&rsquo;inscription' class='screenshot'>
-    </div>
-    <!-- Step 2 -->
-    <div class='step'>
-      <h2>1️⃣ Accéder à la plateforme d'inscription</h2>
-      <div class='case-selector' data-step='2'>
-        <label><input type='radio' name='case-step-2' value='1'> Cas 1 : Vous êtes déjà licencié au CAF La Roche - Bonneville</label>
-        <label><input type='radio' name='case-step-2' value='2'> Cas 2 : Vous n’êtes pas encore licencié</label>
-      </div>
-      <div class='case-content hidden' data-step='2' data-case='1'>
-        <div class='instruction'>
-          <img src='https://www.notion.so/icons/pill_blue.svg' alt='' width='24'>
-          <h3>Cas 1 : Vous êtes déjà licencié au CAF La Roche - Bonneville</h3>
-          <p>✅ Connectez-vous avec votre numéro de licence ici :</p>
-          <p>👉 <a href='https://www.caflarochebonneville.fr/'>caflarochebonneville.fr</a></p>
-          <img src='image.png' alt='Écran de connexion avec numéro de licence' class='screenshot'>
-        </div>
-      </div>
-      <div class='case-content hidden' data-step='2' data-case='2'>
-        <div class='instruction'>
-          <img src='https://www.notion.so/icons/pill_blue.svg' alt='' width='24'>
-          <h3>Cas 2 : Vous n’êtes pas encore licencié</h3>
-          <p>✅ <strong>Attendez la validation de votre inscription avant de prendre votre licence</strong> (ne pas la prendre avant le 1er septembre).</p>
-          <p>✅ Connectez-vous via votre <strong>adresse e-mail</strong> ici :</p>
-          <p>👉 <a href='https://www.caflarochebonneville.fr/cours.html'>Espace d’inscription</a> et cliquez sur <strong>Connexion</strong></p>
-          <p><strong>❗Si vous ne recevez pas cet email, vérifiez dans vos courriers indésirables (spam).</strong></p>
-          <img src='image%201.png' alt='Écran de connexion par email' class='screenshot'>
-        </div>
-      </div>
-    </div>
-    <!-- Step 3 -->
-    <div class='step'>
-      <h2>2️⃣ Coordonnées</h2>
-      <p>Une fois connecté, cliquez sur <strong>”Etape suivante”</strong> ou <strong>”Coordonnées ”</strong> :</p>
-      <img src='image%202.png' alt='Bouton Étape suivante ou Coordonnées' class='screenshot'>
-      <p>Puis <strong>remplissez vos coordonnées</strong>, qui nous permettront de communiquer avec vous concernant le suivi de l'inscription. Ces informations seront utilisées <strong>exclusivement</strong> à cette fin.</p>
-      <img src='image%203.png' alt='Formulaire de coordonnées' class='screenshot'>
-      <div class='info'>
-        <img src='https://www.notion.so/icons/light-bulb_yellow.svg' alt='' width='24'>
-        <h3>Vous étiez déjà inscrit l’année dernière</h3>
-        <p>✅ <strong>Vos coordonnées sont déjà remplies</strong> et gérées par la FFCAM.</p>
-        <p>Si elles sont erronées, vous devez aller sur le site de la fédération pour les mettre à jour.</p>
-      </div>
-    </div>
-    <!-- Step 4 -->
-    <div class='step'>
-      <h2>3️⃣ Sélectionner la personne à inscrire</h2>
-      <div class='case-selector' data-step='4'>
-        <label><input type='radio' name='case-step-4' value='1'> Cas 1 : Vous étiez déjà inscrit l’année dernière</label>
-        <label><input type='radio' name='case-step-4' value='2'> Cas 2 : Première inscription</label>
-      </div>
-      <div class='case-content hidden' data-step='4' data-case='1'>
-        <div class='instruction'>
-          <img src='https://www.notion.so/icons/pill_blue.svg' alt='' width='24'>
-          <h3>Cas 1 : Vous étiez déjà inscrit l’année dernière</h3>
-          <p>✅ Sélectionnez votre nom dans la liste proposée.</p>
-        </div>
-      </div>
-      <div class='case-content hidden' data-step='4' data-case='2'>
-        <div class='instruction'>
-          <img src='https://www.notion.so/icons/pill_blue.svg' alt='' width='24'>
-          <h3>Cas 2 : Première inscription</h3>
-          <p>✅ Entrez les <strong>informations personnelles</strong> de l’élève (nom, prénom, date de naissance).</p>
-          <p>📌 <strong>Attention</strong> : La <strong>date de naissance</strong> est importante, car elle détermine l’accès aux différents niveaux de cours.</p>
-        </div>
-      </div>
-      <img src='image%204.png' alt='Sélection de la personne' class='screenshot'>
-    </div>
-    <!-- Step 5 -->
-    <div class='step'>
-      <h2>📝 Processus d’attribution des créneaux</h2>
-      <div class='instruction'>
-        <p><strong>L’attribution des créneaux est un processus clé dans votre inscription.</strong> Pour maximiser vos chances, choisissez soigneusement vos créneaux et votre préférence de moniteur.</p>
-        <ol>
-          <li><strong>L’inscription est validée uniquement après réception du paiement</strong>.</li>
-          <li><strong>Les créneaux sont classés en fonction des préférences de l’utilisateur</strong>.</li>
-          <li><strong>Test du premier créneau demandé</strong> :
-            <ul>
-              <li>Si le créneau est disponible et que le moniteur choisi est disponible → Attribution confirmée ✅.</li>
-              <li>Si le créneau est indisponible ou si le moniteur n’est pas disponible → Test du second choix, puis du troisième, etc.</li>
-            </ul>
-          </li>
-          <li><strong>Si aucun créneau n’est disponible → L’utilisateur est placé sur liste d’attente ⏳.</strong></li>
-        </ol>
-      </div>
-      <img src='pako.jpg' alt='Schéma du processus d’attribution' class='screenshot'>
-    </div>
-    <!-- Step 6 -->
-    <div class='step'>
-      <h2>4️⃣ Choisir un cours</h2>
-      <img src='image%205.png' alt='Choix du cours' class='screenshot'>
-      <div class='info'>
-        <h3>🧒 Débutants / Confirmés pour les jeunes (primaire et collège)</h3>
-        <p>✅ <strong>Tous les nouveaux élèves commencent en Débutant</strong>, même s’ils ont déjà pratiqué l’escalade.</p>
-        <p>L’objectif est d’apprendre les <strong>bases de l’assurage</strong>, les <strong>techniques fondamentales</strong> et les <strong>règles de sécurité</strong>.</p>
-        <p>📅 Après une première année en Débutant, l’élève passe en catégorie <strong>Confirmé</strong>.</p>
-      </div>
-      <div class='info'>
-        <h3>👨‍🎓 Loisirs / Perfectionnement pour les adultes</h3>
-        <p>📌 <strong>Quel groupe choisir ?</strong></p>
-        <ul>
-          <li><strong>Loisir</strong> : Accessible à <strong>tous niveaux</strong>, y compris débutants ; séances plus libres, adaptées au rythme de chacun.</li>
-          <li><strong>Perfectionnement</strong> : Réservé aux grimpeurs ayant <strong>déjà une base technique</strong> ; moins d'essais classiques dans les voies, <strong>plus d’exercices techniques</strong> et <strong>de travail spécifique</strong> pour progresser efficacement.</li>
-        </ul>
-      </div>
-      <div class='alert'>
-        <h3>⚠️ Groupes soumis à l’approbation des entraîneurs</h3>
-        <ul>
-          <li>Groupe Perf.</li>
-          <li>Pré-compétition 6 - 8 ans</li>
-          <li>Groupe Compétition (U12 et U14)</li>
-          <li>Groupe Compétition (U16 à Vétéran)</li>
-        </ul>
-      </div>
-    </div>
-    <!-- Step 7 -->
-    <div class='step'>
-      <h2>6️⃣Indiquer ses préférences créneaux horaires et moniteurs</h2>
-      <img src='image%205.png' alt='Préférences créneaux horaires et moniteurs' class='screenshot'>
-      <div class='instruction'>
-        <h3>6.1 Créneaux horaires</h3>
-        <p>Si plusieurs créneaux sont disponibles, vous pouvez classer vos préférences :</p>
-        <ul>
-          <li>Cliquez sur ⬆ pour monter le créneau en haut de la liste.</li>
-          <li>Cliquez sur ⬇ pour descendre le créneau en bas de la liste.</li>
-          <li>Cliquez sur ✖ pour supprimer les créneaux qui ne vous conviennent pas (plus vous limitez vos choix, moins vous avez de chances d’obtenir une place).</li>
-        </ul>
-      </div>
-      <div class='instruction'>
-        <h3>6.2 Moniteurs</h3>
-        <p>✔ Oui → Priorité donnée à votre ancien moniteur, sous réserve de disponibilité.</p>
-        <p>✔ Non → Un autre moniteur vous sera attribué en fonction des disponibilités.</p>
-        <p>✔ Peu importe → Plus de flexibilité, augmentant vos chances d’obtenir un créneau.</p>
-      </div>
-      <div class='info'>
-        <h3>💡 Note</h3>
-        <p>Si un créneau est affiché comme <strong>(Complet)</strong>, cela signifie qu’il n’y a plus de places disponibles.</p>
-        <p>Si votre premier choix est complet, mais que votre deuxième choix est         <p>Si votre premier choix est complet, mais que votre deuxième choix est\xa0encore disponible, vous serez automatiquement placé sur ce         <p>Si votre premier choix est complet, mais que votre deuxième choix est\xa0encore disponible, vous serez automatiquement placé sur ce\xa0dernier.</p>
-        <p><strong>Attention</strong> : Un créneau affiché comme <strong>disponible</strong> peut en réalité être déjà en cours de remplissage. Les         <p><strong>Attention</strong> : Un créneau affiché comme <strong>disponible</strong> peut en réalité être déjà en cours de remplissage. Les\xa0places sont attribuées progressivement par une équipe de bénévoles, en fonction de l’ordre d’arrivée des inscriptions.</p>
-      </div>
-    </div>
-    <!-- Step 8 -->
-    <div class='step'>
-      <h2>7️⃣ Valider les informations et accepter le règlement</h2>
-      <p>📌 <strong>Étapes obligatoires avant validation de l'inscription</strong> :</p>
-      <ol>
-        <li>Droit à l’image : Autorisez ou refusez l'utilisation de photos/vidéos pour la communication du club.</li>
-        <li>Vérification des informations personnelles et du créneau choisi.</li>
-      </ol>
-      <div class='alert'>
-        <p><strong>⚠️ Une inscription n’est validée qu’après paiement !</strong></p>
-      </div>
-      <p>Si tout est bon, cliquez sur <strong>“Valider cette inscription”</strong>.</p>
-      <img src='image%206.png' alt='Validation de l'inscription' class='screenshot'>
-    </div>
-    <!-- Step 9 -->
-    <div class='step'>
-      <h2>8️⃣ Paiement de l'inscription</h2>
-      <p>Le paiement s’effectue <strong>exclusivement en ligne</strong> via <strong>HelloAsso</strong>.</p>
-      <img src='image%207.png' alt='Paiement HelloAsso' class='screenshot'>
-      <div class='info'>
-        <p>✅ Une fois votre paiement effectué, <strong>votre inscription est finalisée</strong>.</p>
-        <p>Nous procéderons alors à l’attribution de votre place ou, si aucun créneau n’est disponible, à votre placement en <strong>liste d’attente</strong>.</p>
-        <p>📅 Délai estimé : environ 1 semaine.</p>
-        <p>Vous recevrez une <strong>notification d’attribution</strong> directement dans la <strong>messagerie interne</strong> de votre espace d’inscription.</p>
-      </div>
-      <img src='image%208.png' alt='Confirmation de l'inscription' class='screenshot'>
-    </div>
+<div class='container'>
+  <h1>Tutoriel d’Inscription aux Cours d’Escalade</h1>
+  <p>Ce guide vous explique, <strong>étape par étape</strong>, comment vous inscrire aux cours d’escalade du <strong>CAF La Roche - Bonneville</strong>.</p>
+  <div class='alert'>
+    <p>📌 <strong>Avant de commencer</strong> :</p>
+    <ul>
+      <li>Assurez-vous de respecter les <strong>dates d’ouverture des inscriptions</strong>.</li>
+      <li>Préparez votre <strong>moyen de paiement</strong> (paiement uniquement par carte bancaire via HelloAsso).</li>
+      <li>La <strong>licence CAF</strong> est obligatoire pour accéder aux cours (à prendre <strong>uniquement après validation de votre inscription aux cours</strong>).</li>
+    </ul>
+  </div>
+  <h2>📌 Processus d’Inscription en un coup d'œil</h2>
+  <p>L’inscription suit un processus bien défini, détaillé dans le diagramme ci-dessous :</p>
+  <div class='screenshot'>
+    <img src='mermaid-diagram-2025-02-04-140308.png' alt='Diagramme Processus'>
   </div>
   <div class='navigation'>
-    <button id='prevBtn'>Précédent</button>
-    <button id='nextBtn'>Suivant</button>
+    <button id='prevBtn' onclick='changeStep(-1)' disabled>Précédent</button>
+    <button id='nextBtn' onclick='changeStep(1)'>Suivant</button>
   </div>
-  <script>
-    document.addEventListener('DOMContentLoaded', function(){
-      const steps = document.querySelectorAll('.step');
-      let current = 0;
-      const total = steps.length;
-      const progress = document.getElementById('progress');
-      const prevBtn = document.getElementById('prevBtn');
-      const nextBtn = document.getElementById('nextBtn');
-      showStep(current);
-      prevBtn.addEventListener('click', function() { if (current > 0) { current--; showStep(current); }});
-      nextBtn.addEventListener('click', function() { if (current < total - 1) { current++; showStep(current); }});
-      function showStep(n) {
-        steps.forEach((step, i) => step.classList.toggle('active', i === n));
-        progress.textContent = 'Étape ' + (n+1) + ' sur ' + total;
-        prevBtn.style.display = n === 0 ? 'none' : 'inline-block';
-        nextBtn.style.display = n === total - 1 ? 'none' : 'inline-block';
-      }
-      document.querySelectorAll('input[name^="case-step-"]').forEach(input => {
-        input.addEventListener('change', function(){
-          const step = this.name.split('case-step-')[1];
-          const selected = this.value;
-          document.querySelectorAll('.case-content[data-step="' + step + '"]').forEach(content => {
-            content.classList.toggle('hidden', content.getAttribute('data-case') !== selected);
-          });
-        });
-      });
-    });
-  </script>
+
+  <div id='step1' class='step active'>
+    <h2>1️⃣ Accéder à la plateforme d'inscription</h2>
+    <div class='part-case'>
+      <p>Choisissez votre cas :</p>
+      <label><input type='radio' name='step1-case' onclick='showCase("step1",1)'> Cas 1 : Vous êtes déjà licencié au CAF La Roche Bonneville</label><br>
+      <label><input type='radio' name='step1-case' onclick='showCase("step1",2)'> Cas 2 : Vous n’êtes pas encore licencié</label>
+    </div>
+    <div id='step1-case-content-1' class='case-content'>
+      <div class='instructions'><p>✅ Connectez-vous avec votre numéro de licence ici :</p><p>👉 <a href='https://www.caflarochebonneville.fr/' target='_blank'>caflarochebonneville.fr</a></p></div>
+      <div class='screenshot'><img src='image.png' alt='Connexion licence'></div>
+    </div>
+    <div id='step1-case-content-2' class='case-content'>
+      <div class='instructions'>
+        <p>✅ <strong>Attendez la validation de votre inscription avant de prendre votre licence</strong> (ne pas la prendre avant le 1er septembre).</p>
+        <p>✅ Connectez-vous via votre <strong>adresse e-mail</strong> ici :</p>
+        <p>👉 <a href='https://www.caflarochebonneville.fr/cours.html' target='_blank'>Espace d’inscription</a> et cliquez sur <strong>"Connexion"</strong></p>
+      </div>
+      <div class='alert'><p>❗ Si vous ne recevez pas cet email, vérifiez dans vos courriers indésirables (spam).</p></div>
+      <div class='screenshot'><img src='image%201.png' alt='Connexion email'></div>
+    </div>
+  </div>
+
+  <div id='step2' class='step'>
+    <h2>2️⃣ Coordonnées</h2>
+    <div class='instructions'><p>Une fois connecté, cliquez sur <strong>”Etape suivante”</strong> ou <strong>”Coordonnées”</strong> :</p></div>
+    <div class='screenshot'><img src='image%202.png' alt='Etape coordonnées'></div>
+    <div class='instructions'><p>Puis <strong>remplissez vos coordonnées</strong>, qui nous permettront de communiquer avec vous concernant le suivi de l'inscription. Ces informations seront utilisées <strong>exclusivement</strong> à cette fin.</p></div>
+    <div class='screenshot'><img src='image%203.png' alt='Formulaire coordonnées'></div>
+    <div class='info'><p>💡 <strong>Vous étiez déjà inscrit l’année dernière</strong> : vos coordonnées sont déjà remplies et gérées par la FFCAM. Si elles sont erronées, allez sur le site de la fédération pour les mettre à jour.</p></div>
+  </div>
+
+  <div id='step3' class='step'>
+    <h2>3️⃣ Sélectionner la personne à inscrire</h2>
+    <div class='instructions'><p>Cliquez sur <strong>”Etape suivante”</strong> ou <strong>”Inscription”</strong> et suivez ces étapes :</p></div>
+    <div class='screenshot'><img src='image%204.png' alt='Sélection personne'></div>
+    <div class='part-case'>
+      <p>Choisissez votre cas :</p>
+      <label><input type='radio' name='step3-case' onclick='showCase("step3",1)'> Cas 1 : Vous étiez déjà inscrit l’année dernière</label><br>
+      <label><input type='radio' name='step3-case' onclick='showCase("step3",2)'> Cas 2 : Première inscription</label>
+    </div>
+    <div id='step3-case-content-1' class='case-content'>
+      <div class='instructions'><p>✅ Sélectionnez votre nom dans la liste proposée.</p></div>
+    </div>
+    <div id='step3-case-content-2' class='case-content'>
+      <div class='instructions'><p>✅ Entrez les <strong>informations personnelles</strong> de l’élève (nom, prénom, date de naissance).<br>📌 <strong>Attention</strong> : la date de naissance détermine l’accès aux différents niveaux de cours.</p></div>
+    </div>
+  </div>
+
+  <div id='step4' class='step'>
+    <h2>📝 Processus d’attribution des créneaux</h2>
+    <div class='info'><p><strong>L’attribution des créneaux est un processus clé dans votre inscription.</strong> Pour maximiser vos chances, choisissez soigneusement vos créneaux et votre préférence de moniteur.</p><ol><li>L’inscription est validée uniquement après réception du paiement.</li><li>Les créneaux sont classés selon vos préférences.</li><li>Test du premier créneau demandé : si disponible et moniteur disponible → <strong>Attribution confirmée</strong> ✅, sinon test du second choix, etc.</li><li>Si aucun créneau n’est disponible → vous êtes placé sur liste d’attente ⏳.</li></ol></div>
+    <div class='screenshot'><img src='pako.jpg' alt='Schéma attribution'></div>
+  </div>
+
+  <div id='step5' class='step'>
+    <h2>4️⃣ Choisir un cours</h2>
+    <div class='screenshot'><img src='image%205.png' alt='Choix cours'></div>
+    <div class='info'><p>🧒 <strong>Débutants / Confirmés pour les jeunes (primaire et collège)</strong><br>✅ Tous les nouveaux élèves commencent en Débutant, même s’ils ont déjà pratiqué. 📅 Après une première année en Débutant, passage en Confirmé.</p></div>
+    <div class='info'><p>👨‍🎓 <strong>Loisirs / Perfectionnement pour les adultes</strong><br>✔ Loisir : accessible à tous niveaux, y compris débutants.<br>✔ Perfectionnement : réservé aux grimpeurs avec base technique. Moins d’essais classiques, plus d’exercices techniques.</p></div>
+    <div class='alert'><p>⚠️ <strong>Groupes soumis à l’approbation des entraîneurs</strong> : Perf., Pré-compétition 6-8 ans, Compétition (U12-U14), Compétition (U16-Vétéran).</p></div>
+  </div>
+
+  <div id='step6' class='step'>
+    <h2>6️⃣ Indiquer ses préférences créneaux horaires et moniteurs</h2>
+    <div class='screenshot'><img src='image%205.png' alt='Préférences'></div>
+    <div class='info'><p>🕝 <strong>6.1 Créneaux horaires</strong><br>Classez avec ⬆ et ⬇, supprimez avec ✖ (attention, moins de choix = moins de chances).</p></div>
+    <div class='info'><p>🙍‍♂️ <strong>6.2 Moniteurs</strong><br>Oui = priorité ancien moniteur, Non = un autre moniteur, Peu importe = plus de flexibilité.</p></div>
+    <div class='alert'><p>💡 Si un créneau est affiché « Complet », il n’y a plus de places. Un créneau affiché disponible peut se remplir en cours de traitement.</p></div>
+  </div>
+
+  <div id='step7' class='step'>
+    <h2>7️⃣ Valider les informations et accepter le règlement</h2>
+    <div class='instructions'><p>📌 Étapes obligatoires :</p><ol><li>Droit à l’image : autorisez ou refusez.</li><li>Vérifiez vos infos et créneau.</li></ol><p>Si tout est bon, cliquez sur <strong>Valider cette inscription</strong>.</p></div>
+    <div class='alert'><p>⚠️ Une inscription n’est validée qu’après paiement !</p></div>
+    <div class='screenshot'><img src='image%206.png' alt='Validation'></div>
+  </div>
+
+  <div id='step8' class='step'>
+    <h2>8️⃣ Paiement de l'inscription</h2>
+    <div class='screenshot'><img src='image%207.png' alt='Paiement'></div>
+    <div class='info'><p>✅ Après paiement, votre inscription est finalisée. Attribution ou liste d’attente sous ~1 semaine. Notification dans la messagerie interne.</p></div>
+    <div class='screenshot'><img src='image%208.png' alt='Confirmation paiement'></p></div>
+  </div>
+
+  <div class='navigation'>
+    <button onclick='changeStep(-1)' id='prevBtn2' disabled>Précédent</button>
+    <button onclick='changeStep(1)' id='nextBtn2'>Suivant</button>
+  </div>
+</div>
+<script>
+let currentStep = 1;
+const totalSteps = 8;
+function changeStep(delta) {
+  document.getElementById('step'+currentStep).classList.remove('active');
+  currentStep += delta;
+  document.getElementById('step'+currentStep).classList.add('active');
+  document.getElementById('prevBtn').disabled = currentStep === 1;
+  document.getElementById('nextBtn').disabled = currentStep === totalSteps;
+  document.getElementById('prevBtn2').disabled = currentStep === 1;
+  document.getElementById('nextBtn2').disabled = currentStep === totalSteps;
+}
+function showCase(step, num) {
+  document.querySelectorAll('#'+step+' .case-content').forEach(c=>c.style.display='none');
+  document.getElementById(step+'-case-content-'+num).style.display='block';
+}
+// Cache les contenus de cas au démarrage
+['step1','step3'].forEach(step=> {
+  document.querySelectorAll('#'+step+' .case-content').forEach(c=>c.style.display='none');
+});
+</script>
 </body>
 </html>
