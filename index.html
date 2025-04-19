@@ -98,14 +98,113 @@
       max-width: 100%;
       height: auto;
       border-radius: 4px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .screenshot img.loaded {
+      opacity: 1;
     }
     h1, h2 {
       margin-top: 0;
+    }
+    
+    /* Barre de progression */
+    .progress-container {
+      margin: 20px 0;
+      background-color: #e0e0e0;
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+      height: 24px;
+    }
+    .progress-bar {
+      height: 100%;
+      background-color: var(--primary);
+      transition: width 0.3s ease;
+    }
+    .progress-text {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      text-align: center;
+      color: white;
+      text-shadow: 0 0 2px rgba(0,0,0,0.5);
+      line-height: 24px;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    
+    /* Menu rapide */
+    .quick-menu {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 20px 0;
+      gap: 5px;
+    }
+    .quick-menu button {
+      padding: 8px 12px;
+      font-size: 12px;
+    }
+    .quick-menu button.active {
+      background: #003d75;
+    }
+    
+    /* Export options */
+    .export-options {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .export-options button {
+      background: #4caf50;
+    }
+    
+    /* Print styles */
+    @media print {
+      body {
+        background-color: white;
+      }
+      .step {
+        display: block !important;
+        break-inside: avoid;
+        page-break-inside: avoid;
+        margin-bottom: 30px;
+        box-shadow: none;
+      }
+      .navigation, .quick-menu, .export-options, .progress-container {
+        display: none;
+      }
     }
   </style>
 </head>
 <body>
 <div class='container'>
+  <!-- Barre de progression -->
+  <div class='progress-container'>
+    <div id='progressBar' class='progress-bar' style='width: 0%'></div>
+    <div class='progress-text'>Étape <span id='currentStepText'>1</span>/9</div>
+  </div>
+  
+  <!-- Menu rapide -->
+  <div class='quick-menu'>
+    <button id='quick-btn-0' class='active' onclick='jumpToStep(0)'>Introduction</button>
+    <button id='quick-btn-1' onclick='jumpToStep(1)'>1️⃣ Accès</button>
+    <button id='quick-btn-2' onclick='jumpToStep(2)'>2️⃣ Coordonnées</button>
+    <button id='quick-btn-3' onclick='jumpToStep(3)'>3️⃣ Personne</button>
+    <button id='quick-btn-4' onclick='jumpToStep(4)'>4️⃣ Créneaux</button>
+    <button id='quick-btn-5' onclick='jumpToStep(5)'>5️⃣ Cours</button>
+    <button id='quick-btn-6' onclick='jumpToStep(6)'>6️⃣ Préférences</button>
+    <button id='quick-btn-7' onclick='jumpToStep(7)'>7️⃣ Validation</button>
+    <button id='quick-btn-8' onclick='jumpToStep(8)'>8️⃣ Paiement</button>
+  </div>
+  
+  <!-- Options d'export -->
+  <div class='export-options'>
+    <button onclick='window.print()'>Imprimer le guide</button>
+    <button onclick='exportAsPDF()'>Télécharger en PDF</button>
+  </div>
+
   <div id='step0' class='step active'>
     <h1>Tutoriel d'Inscription aux Cours d'Escalade</h1>
     <p>Ce guide vous explique, <strong>étape par étape</strong>, comment vous inscrire aux cours d'escalade du <strong>CAF La Roche - Bonneville</strong></p>
@@ -130,7 +229,7 @@
       <li>️⃣ L'utilisateur peut <strong>vérifier son inscription</strong>.</li>
       <li>️⃣ Un <strong>e-mail d'information</strong> est envoyé fin août avant le début des cours.</li>
     </ol>
-    <div class='screenshot'><img src='mermaid-diagram-2025-02-04-140308.png' alt='Diagramme Processus'></div>
+    <div class='screenshot'><img data-src='mermaid-diagram-2025-02-04-140308.png' alt='Diagramme de processus d'inscription complet montrant toutes les étapes du flux d'inscription'></div>
   </div>
 
   <div id='step1' class='step'>
@@ -141,33 +240,33 @@
       <label><input type='radio' name='step1-case' onclick='showCase("step1",2)'> Cas 2 : Vous n'êtes pas encore licencié</label>
     </div>
     <div id='step1-case-content-1' class='case-content'>
-      <div class='instructions'><p>✅ Connectez-vous avec votre adresse email ici :</p><p>👉 <a href='https://www.caflarochebonneville.fr/' target='_blank'>caflarochebonneville.fr</a></p></div>
-      <div class='screenshot'><img src='image.png' alt='Connexion licence'></div>
+      <div class='instructions'><p>✅ Connectez-vous avec votre adresse email ici :</p><p>👉 <a href='https://www.caflarochebonneville.fr/' target='_blank' rel="noopener noreferrer">caflarochebonneville.fr</a></p></div>
+      <div class='screenshot'><img data-src='image.png' alt='Écran de connexion montrant le formulaire de saisie d'email pour les adhérents existants'></div>
     </div>
     <div id='step1-case-content-2' class='case-content'>
       <div class='alert'><p>✅ <strong>Attendez la validation de votre inscription avant de prendre votre licence</strong> (ne pas la prendre avant le 1er septembre).</p></div>
 	  <div class='instructions'>
         <p>✅ Connectez-vous via votre <strong>adresse e-mail</strong> ici :</p>
-        <p>👉 <a href='https://www.caflarochebonneville.fr/cours.html' target='_blank'>Espace d'inscription</a> et cliquez sur <strong>"Connexion"</strong></p>
+        <p>👉 <a href='https://www.caflarochebonneville.fr/cours.html' target='_blank' rel="noopener noreferrer">Espace d'inscription</a> et cliquez sur <strong>"Connexion"</strong></p>
       </div>
       <div class='alert'><p>❗ Si vous ne recevez pas l'email de validation, vérifiez dans vos courriers indésirables (spam).</p></div>
-      <div class='screenshot'><img src='image%201.png' alt='Connexion email'></div>
+      <div class='screenshot'><img data-src='image%201.png' alt='Écran de connexion pour les nouveaux adhérents avec champ email et bouton de connexion'></div>
     </div>
   </div>
 
   <div id='step2' class='step'>
     <h2>2️⃣ Coordonnées</h2>
     <div class='instructions'><p>Une fois connecté, cliquez sur <strong>"Etape suivante"</strong> ou <strong>"Coordonnées"</strong> :</p></div>
-    <div class='screenshot'><img src='image%202.png' alt='Etape coordonnées'></div>
+    <div class='screenshot'><img data-src='image%202.png' alt='Interface montrant le bouton Étape suivante ou Coordonnées à cliquer'></div>
     <div class='instructions'><p>Puis <strong>remplissez vos coordonnées</strong>, qui nous permettront de communiquer avec vous concernant le suivi de l'inscription. Ces informations seront utilisées <strong>exclusivement</strong> à cette fin.</p></div>
-    <div class='screenshot'><img src='image%203.png' alt='Formulaire coordonnées'></div>
+    <div class='screenshot'><img data-src='image%203.png' alt='Formulaire de saisie des coordonnées avec champs nom, prénom, adresse, téléphone, etc.'></div>
     <div class='info'><p>💡 <strong>Vous étiez déjà inscrit l'année dernière</strong> : vos coordonnées sont déjà remplies et gérées par la FFCAM. Si elles sont erronées, allez sur le site de la fédération pour les mettre à jour.</p></div>
   </div>
 
   <div id='step3' class='step'>
     <h2>3️⃣ Sélectionner la personne à inscrire</h2>
     <div class='instructions'><p>Cliquez sur <strong>"Etape suivante"</strong> ou <strong>"Inscription"</strong> et suivez ces étapes :</p></div>
-    <div class='screenshot'><img src='image%204.png' alt='Sélection personne'></div>
+    <div class='screenshot'><img data-src='image%204.png' alt='Interface de sélection de la personne à inscrire avec boutons de navigation'></div>
     <div class='part-case'>
       <p>Choisissez votre cas :</p>
       <label><input type='radio' name='step3-case' onclick='showCase("step3",1)'> Cas 1 : Vous étiez déjà inscrit l'année dernière</label><br>
@@ -198,12 +297,12 @@
 </div>
 
 
-    <div class='screenshot'><img src='PAKO.jpg' alt='Schéma attribution'></div>
+    <div class='screenshot'><img data-src='PAKO.jpg' alt='Diagramme montrant le processus d'attribution des créneaux avec les différentes étapes de validation'></div>
   </div>
 
   <div id='step5' class='step'>
     <h2>4️⃣ Choisir un cours</h2>
-    <div class='screenshot'><img src='image%205.png' alt='Choix cours'></div>
+    <div class='screenshot'><img data-src='image%205.png' alt='Interface de sélection des cours avec les différentes options disponibles'></div>
 <div class='info'>
   <h3><strong>🧒 Débutants / Confirmés pour les jeunes (primaire et collège)</strong></h3>
   <p>✅ <strong>Tous les nouveaux élèves commencent en Débutant</strong>, même s'ils ont déjà pratiqué l'escalade.</p>
@@ -242,7 +341,7 @@
 
   <div id='step6' class='step'>
     <h2>6️⃣ Indiquer ses préférences créneaux horaires et moniteurs</h2>
-    <div class='screenshot'><img src='image%205.png' alt='Préférences'></div>
+    <div class='screenshot'><img data-src='image%205.png' alt='Interface de sélection des préférences de créneaux et moniteurs'></div>
 	<div class='info'>
 	  <p><strong>🕝 6.1 Créneaux horaires</strong></p>
 	  <p>Si plusieurs créneaux sont disponibles, vous pouvez classer vos préférences.</p>
@@ -280,7 +379,7 @@
       <p>Si tout est bon, cliquez sur <strong>Valider cette inscription</strong>.</p>
     </div>
     <div class='alert'><p>⚠️ Une inscription n'est validée qu'après paiement !</p></div>
-    <div class='screenshot'><img src='image%206.png' alt='Validation'></div>
+    <div class='screenshot'><img data-src='image%206.png' alt='Écran de validation d'inscription avec options de droits à l'image et récapitulatif des informations'></div>
   </div>
 
   <div id='step8' class='step'>
@@ -289,7 +388,7 @@
 	  <p>Le paiement s'effectue <strong>exclusivement en ligne</strong> via <strong>HelloAsso</strong>.</p>
 	</div>
 
-    <div class='screenshot'><img src='image%207.png' alt='Paiement'></div>
+    <div class='screenshot'><img data-src='image%207.png' alt='Interface de paiement HelloAsso montrant les options de carte bancaire'></div>
 	
 	<div class='info'>
 	  <h2>✅ Une fois votre paiement effectué, <strong>votre inscription est finalisée</strong>.</h2>
@@ -298,7 +397,7 @@
 	  <p>Vous recevrez une <strong>notification d'attribution</strong> directement dans la <strong>messagerie interne</strong> de votre espace d'inscription.</p>
 	</div>
 
-    <div class='screenshot'><img src='image%208.png' alt='Confirmation paiement'></div>
+    <div class='screenshot'><img data-src='image%208.png' alt='Écran de confirmation de paiement avec récapitulatif de l'inscription'></div>
   </div>
 
   <div class='navigation'>
@@ -309,6 +408,8 @@
 <script>
   let currentStep = 0;
   const totalSteps = 8;
+  
+  // Fonction pour changer d'étape avec défilement vers le haut
   function changeStep(delta) {
     document.getElementById('step'+currentStep).classList.remove('active');
     currentStep += delta;
@@ -316,19 +417,148 @@
     document.getElementById('prevBtn').disabled = currentStep === 0;
     document.getElementById('nextBtn').disabled = currentStep === totalSteps;
     
-    // Ajout du scroll vers le haut de la page
+    // Mettre à jour la barre de progression
+    updateProgress();
+    
+    // Mettre à jour le menu rapide
+    updateQuickMenu();
+    
+    // Défilement vers le haut
     window.scrollTo({
       top: 0,
-      behavior: "smooth" // Pour un défilement fluide
+      behavior: "smooth"
     });
+    
+    // Sauvegarder la progression
+    saveProgress();
+    
+    // Charger les images visibles
+    lazyLoadImages();
   }
+  
+  // Fonction pour sauter directement à une étape
+  function jumpToStep(step) {
+    if (step === currentStep) return;
+    document.getElementById('step'+currentStep).classList.remove('active');
+    currentStep = step;
+    document.getElementById('step'+currentStep).classList.add('active');
+    document.getElementById('prevBtn').disabled = currentStep === 0;
+    document.getElementById('nextBtn').disabled = currentStep === totalSteps;
+    
+    // Mettre à jour la barre de progression
+    updateProgress();
+    
+    // Mettre à jour le menu rapide
+    updateQuickMenu();
+    
+    // Défilement vers le haut
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+    
+    // Sauvegarder la progression
+    saveProgress();
+    
+    // Charger les images visibles
+    lazyLoadImages();
+  }
+  
+  // Mettre à jour la barre de progression
+  function updateProgress() {
+    const progressBar = document.getElementById('progressBar');
+    const progressText = document.getElementById('currentStepText');
+    const progressPercentage = (currentStep / totalSteps) * 100;
+    progressBar.style.width = progressPercentage + '%';
+    progressText.textContent = currentStep + 1;
+  }
+  
+  // Mettre à jour l'état du menu rapide
+  function updateQuickMenu() {
+    for (let i = 0; i <= totalSteps; i++) {
+      const quickBtn = document.getElementById('quick-btn-'+i);
+      if (i === currentStep) {
+        quickBtn.classList.add('active');
+      } else {
+        quickBtn.classList.remove('active');
+      }
+    }
+  }
+  
+  // Afficher le contenu des cas
   function showCase(step, num) {
     document.querySelectorAll('#'+step+' .case-content').forEach(c=>c.style.display='none');
     document.getElementById(step+'-case-content-'+num).style.display='block';
+    
+    // Charger les images visibles après avoir affiché le contenu
+    lazyLoadImages();
   }
-  // Masquer les contenus de cas au démarrage
-  ['step1','step3'].forEach(step=> {
-    document.querySelectorAll('#'+step+' .case-content').forEach(c=>c.style.display='none');
+  
+  // Lazy Loading pour les images
+  function lazyLoadImages() {
+    const images = document.querySelectorAll('img[data-src]');
+    images.forEach(img => {
+      if (isInViewport(img)) {
+        img.src = img.getAttribute('data-src');
+        img.onload = function() {
+          img.classList.add('loaded');
+        };
+        img.removeAttribute('data-src');
+      }
+    });
+  }
+  
+  // Vérifier si un élément est visible dans le viewport
+  function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+  }
+  
+  // Sauvegarder la progression dans le localStorage
+  function saveProgress() {
+    localStorage.setItem('inscriptionTutorialStep', currentStep);
+  }
+  
+  // Charger la progression sauvegardée
+  function loadProgress() {
+    const savedStep = localStorage.getItem('inscriptionTutorialStep');
+    if (savedStep !== null) {
+      jumpToStep(parseInt(savedStep));
+    }
+  }
+  
+  // Fonction pour exporter en PDF
+  function exportAsPDF() {
+    // Informer l'utilisateur sur l'utilisation de l'impression comme alternative
+    alert("Pour créer un PDF, utilisez la fonction d'impression de votre navigateur (Ctrl+P / Cmd+P) et choisissez 'Enregistrer comme PDF' ou utilisez une imprimante PDF virtuelle.");
+    // Ouvrir la boîte de dialogue d'impression
+    window.print();
+  }
+  
+  // Au chargement de la page
+  window.addEventListener('DOMContentLoaded', function() {
+    // Masquer les contenus de cas au démarrage
+    ['step1','step3'].forEach(step=> {
+      document.querySelectorAll('#'+step+' .case-content').forEach(c=>c.style.display='none');
+    });
+    
+    // Initialiser la barre de progression
+    updateProgress();
+    
+    // Charger la progression précédente si elle existe
+    loadProgress();
+    
+    // Activer le lazy loading initial
+    lazyLoadImages();
+    
+    // Écouter le défilement pour charger les images au fur et à mesure
+    window.addEventListener('scroll', lazyLoadImages);
+    window.addEventListener('resize', lazyLoadImages);
   });
 </script>
 </body>
